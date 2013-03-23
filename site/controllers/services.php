@@ -13,7 +13,7 @@ class RopoControllerServices extends JControllerLegacy
 	public function __construct($config = array())
 	{
 		parent::__construct($config);
-		$this->registerTask('test',        'test');
+		$this->registerTask('test', 'test');
 	}
 
 
@@ -22,7 +22,7 @@ class RopoControllerServices extends JControllerLegacy
 		//$params = array ( 'param1' => 'This is param1', 'param2' => 'This is param2');
 		$params = array ( 'This is param1', 'This is param2');
 
-		$request_method = 'services.test';
+		$request_method = 'services.getsystems';
 		$request_params = xmlrpc_encode( $params );
 
 		$postdata = http_build_query(array('params' => $request_params));
@@ -36,11 +36,13 @@ class RopoControllerServices extends JControllerLegacy
 
 		$context  = stream_context_create($opts);
 		
-		$response = file_get_contents(JURI::base()."index.php?option=com_ropo&task=$request_method&format=xmlrpc", false, $context);
+		$response = file_get_contents(JURI::base()."index.php?option=com_ropo&task=".$request_method."&format=xmlrpc", false, $context);
 		$params = xmlrpc_decode($response);
 
 		echo "Method name: $request_method";
 		echo "<P>Params:";
 		print_r ($params);
 	}
+	
+	
 }

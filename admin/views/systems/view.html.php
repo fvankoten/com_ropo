@@ -43,8 +43,9 @@ class RopoViewSystems extends JViewLegacy
 	protected function addToolBar()
 	{
 		JToolBarHelper::title(JText::_('COM_ROPO_MANAGER_SYSTEMS'));
-		JToolBarHelper::deleteList('', 'systems.delete');
-		JToolBarHelper::editList('system.edit');
-		JToolBarHelper::addNew('system.add');
+		//JToolBarHelper::deleteList('', 'systems.delete');
+		//JToolBarHelper::editList('system.edit');
+		//JToolBarHelper::addNew('system.add');
+		JToolBarHelper::preferences('com_ropo');
 	}
 }

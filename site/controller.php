@@ -10,4 +10,18 @@ jimport('joomla.application.component.controller');
  */
 class RopoController extends JControllerLegacy
 {
+	/**
+	 * display task
+	 *
+	 * @return void
+	 */
+	function display($cachable = false)
+	{
+		// set default view if not set
+		$input = JFactory::getApplication()->input;
+		$input->set('view', $input->getCmd('view', 'Publicsystems'));
+
+		// call parent behavior
+		parent::display($cachable);
+	}
 }

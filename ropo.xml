@@ -10,9 +10,12 @@
 	<copyright>Copyright Info</copyright>
 	<license>License Info</license>
 	<!-- The version string is recorded in the components table -->
-	<version>0.0.1</version>
+	<version>0.0.4</version>
 	<!-- The description is optional and defaults to the name -->
 	<description></description>
+
+	<!-- Runs on install/uninstall/update; New in 2.5 -->
+	<scriptfile>script.php</scriptfile>
 
 	<install> <!-- Runs on install -->
 		<sql>
@@ -42,6 +45,8 @@
 		<folder>models</folder>
 		<folder>controllers</folder>
 		<folder>language</folder>
+		<folder>buttons</folder>
+		<folder>helpers</folder>
 	</files>
 
 	<administration>
@@ -56,6 +61,8 @@
 			<filename>index.html</filename>
 			<filename>ropo.php</filename>
 			<filename>controller.php</filename>
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
 			<!-- SQL files section -->
 			<folder>sql</folder>
 			<folder>tables</folder>
@@ -63,7 +70,12 @@
 			<folder>views</folder>
 			<folder>models</folder>
 			<folder>controllers</folder>
+			<folder>plugins</folder>
 		</files>
 	</administration>
+	
+	<media folder="media" destination="com_ropo">
+		<folder>css</folder>
+	</media>
 
 </extension>

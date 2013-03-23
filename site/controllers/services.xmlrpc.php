@@ -6,14 +6,25 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controller');
 
 /**
- * Systems Controller
+ * Services Controller
  */
 class RopoControllerServices extends JControllerLegacy
 {
-	public function test()
-	{
-		$params = xmlrpc_decode($_POST['params']);
-		$params[] = "new from rpccall";
-		echo xmlrpc_encode ($params);
+		
+	public function getsystems() {
+		$items = array();
+		
+		// Create a new query object.
+		$db = JFactory::getDBO();
+		$query = $db->getQuery(true);
+		// Select some fields
+		$query->select('id,regno,version,title,created_time,modified_time,state');
+		// From the systems
+		$query->from('#__ropo_systems');
+		
+		$db->setQuery($query);
+		$items = $db->loadAssocList();
+				
+		echo xmlrpc_encode($items);
 	}
 }
