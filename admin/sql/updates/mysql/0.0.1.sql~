@@ -1,0 +1,190 @@
+DROP TABLE IF EXISTS `#__ropo_systems`;
+DROP TABLE IF EXISTS `#__ropo_identificationdata`;
+DROP TABLE IF EXISTS `#__ropo_purposes`;
+DROP TABLE IF EXISTS `#__ropo_sources`;
+DROP TABLE IF EXISTS `#__ropo_datasubject_categories`;
+DROP TABLE IF EXISTS `#__ropo_personaldata_categories`;
+DROP TABLE IF EXISTS `#__ropo_data_usage`;
+DROP TABLE IF EXISTS `#__ropo_restrictions`;
+DROP TABLE IF EXISTS `#__ropo_disclosures`;
+DROP TABLE IF EXISTS `#__ropo_transfers`;
+DROP TABLE IF EXISTS `#__ropo_linked_systems`;
+DROP TABLE IF EXISTS `#__ropo_security_measures`;
+DROP TABLE IF EXISTS `#__ropo_applicants`;
+ 
+CREATE TABLE `#__ropo_systems` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`system_id` INT(11) NOT NULL,
+	`version` INT(3) DEFAULT 0,
+	`title` VARCHAR(255) NOT NULL,
+	`purpose` TEXT DEFAULT NULL,
+	`created_user_id` INT(11) UNSIGNED NOT NULL,
+	`created_time` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+	`modified_user_id` INT(11) UNSIGNED NOT NULL,
+	`modified_time` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+	`state` ENUM('INITIALIZED','COMPLETED','PENDING','APPROVED','NOTAPPROVED','DELETED') DEFAULT 'INITIALIZED',
+	PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=100000 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__ropo_identificationdata` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`system_id` INT(11) NOT NULL,
+	`type_of_controller` ENUM ('NATURAL','LEGAL') DEFAULT 'NATURAL',
+	`controller_name` VARCHAR(255) NOT NULL,
+	`controller_address1` VARCHAR(100) NOT NULL,
+	`controller_postalcode` VARCHAR(10) NOT NULL,
+	`controller_city` VARCHAR(255) NOT NULL,
+	`controller_regno` VARCHAR(50) NOT NULL,
+	`controller_telephone` VARCHAR(100) NOT NULL,
+	`controller_telefax` VARCHAR(100) NOT NULL,
+	`controller_mail` VARCHAR(100) NOT NULL,
+	`controller_website` VARCHAR(255) NOT NULL,
+	`pocessor_name` VARCHAR(255) DEFAULT NULL,
+	`pocessor_address1` VARCHAR(100) DEFAULT NULL,
+	`pocessor_postalcode` VARCHAR(10) DEFAULT NULL,
+	`pocessor_city` VARCHAR(255) DEFAULT NULL,
+	`pocessor_telephone` VARCHAR(100) DEFAULT NULL,
+	`pocessor_telefax` VARCHAR(100) DEFAULT NULL,
+	`pocessor_mail` VARCHAR(100) DEFAULT NULL,
+	`pocessor_operations` TEXT DEFAULT NULL,
+	`place_name` VARCHAR(255) DEFAULT NULL,
+	`place_address1` VARCHAR(100) DEFAULT NULL,
+	`place_postalcode` VARCHAR(10) DEFAULT NULL,
+	`place_city` VARCHAR(255) DEFAULT NULL,
+	PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__ropo_purposes` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`system_id` INT(11) NOT NULL,
+	`purpose` TEXT,
+	`established_by` ENUM ('LAW','CONSENT'),
+	`description` TEXT,
+	PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__ropo_sources` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`system_id` INT(11) NOT NULL,
+	`source_of_information` TEXT,
+	`source_medium` TEXT,
+	`manner_of_collection` ENUM ('MANUAL','AUTOMATIC'),
+	PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__ropo_datasubject_categories` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`system_id` INT(11) NOT NULL,
+	`civil_servants` TINYINT(1) DEFAULT 0,
+	`clients` TINYINT(1) DEFAULT 0,
+	`employees` TINYINT(1) DEFAULT 0,
+	`members` TINYINT(1) DEFAULT 0,
+	`patients` TINYINT(1) DEFAULT 0,
+	`shareholders` TINYINT(1) DEFAULT 0,
+	`social_assistence_users` TINYINT(1) DEFAULT 0,
+	`students` TINYINT(1) DEFAULT 0,
+	`suppliers` TINYINT(1) DEFAULT 0,
+	`other` TEXT DEFAULT NULL,
+	PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__ropo_personaldata_categories` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`system_id` INT(11) NOT NULL,
+	`health` TINYINT(1) DEFAULT 0,
+	`political_opinions` TINYINT(1) DEFAULT 0,
+	`racial_origin` TINYINT(1) DEFAULT 0,
+	`religious_beliefs` TINYINT(1) DEFAULT 0,
+	`sexlife` TINYINT(1) DEFAULT 0,
+	`trade_union_membership` TINYINT(1) DEFAULT 0,
+	`biometric_data` TINYINT(1) DEFAULT 0,
+	`identification_data` TINYINT(1) DEFAULT 0,
+	`personal_detail_data` TINYINT(1) DEFAULT 0,
+	`address_detail_data` TINYINT(1) DEFAULT 0,
+	`residence_details` TINYINT(1) DEFAULT 0,
+	`video_surveillance` TINYINT(1) DEFAULT 0,
+	`economic_data` TINYINT(1) DEFAULT 0,
+	`professional_life` TINYINT(1) DEFAULT 0,
+	`audio` TINYINT(1) DEFAULT 0,
+	`photo` TINYINT(1) DEFAULT 0,
+	`other` TEXT DEFAULT NULL,
+	PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__ropo_data_usage` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`system_id` INT(11) NOT NULL,
+	`established_time` DATETIME,
+	`storage_period` VARCHAR(100),
+	`storage_basis` ENUM ('LEGAL','PURPOSE'),
+	`storage_specification` VARCHAR(255),
+	`usage_period` VARCHAR(100),
+	`usage_basis` ENUM ('LEGAL','PURPOSE'),
+	`usage_specification` VARCHAR(255),
+	`details` TEXT DEFAULT NULL,
+	PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__ropo_restrictions` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`system_id` INT(11) NOT NULL,
+	`details` TEXT DEFAULT NULL,
+	`legal_basis` TEXT DEFAULT NULL,
+	PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__ropo_disclosures` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`system_id` INT(11) NOT NULL,
+	`enabled` TINYINT(1) DEFAULT 0,
+	`recipient` TEXT DEFAULT NULL,
+	`purpose` TEXT DEFAULT NULL,
+	PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__ropo_transfers` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`system_id` INT(11) NOT NULL,
+	`enabled` TINYINT(1) DEFAULT 0,
+	`country` VARCHAR(100),
+	`recipient` VARCHAR(255),
+	`foreign_user` VARCHAR(255),
+	`purpose` VARCHAR(255),
+	`legal_basis` VARCHAR(255),
+	`frequency` ENUM ('ONCE','CONTINUOUSLY','PERIODICALLY'),
+	`period` INT(3) DEFAULT NULL,
+	`authorization` VARCHAR(255),
+	PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__ropo_linked_systems` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`system_id` INT(11) NOT NULL,
+	`enabled` TINYINT(1) DEFAULT 0,
+	`description` TEXT,
+	`notification` TEXT,
+	`authorization` VARCHAR(255),
+	PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__ropo_security_measures` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`system_id` INT(11) NOT NULL,
+	`confidentiality` TEXT,
+	`integrity` TEXT,
+	`availability` TEXT,
+	`transparency_by_document` TINYINT(1) DEFAULT 0,
+	`document_details` VARCHAR(100) DEFAULT NULL,
+	`transparency_by_plan` TINYINT(1) DEFAULT 0,
+	`plan_details` VARCHAR(100) DEFAULT NULL,
+	PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__ropo_applicants` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`system_id` INT(11) NOT NULL,
+	`firstname` VARCHAR(100) DEFAULT NULL,
+	`lastname` VARCHAR(100) DEFAULT NULL,
+	`application_date` DATE,
+	PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ROPO" default="copy_all" basedir=".">
+
+	<property name="site" value="../joomla_2.5.9/components/com_ropo" />
+	<property name="admin" value="../joomla_2.5.9/administrator/components/com_ropo" />
+	
+	<fileset dir="${project.basedir}/site" id="sitefiles">
+	    <include name="**/*" />
+	</fileset>
+	
+	<fileset dir="${project.basedir}/admin" id="adminfiles">
+	    <include name="**/*" />
+	</fileset>
+	
+	<target name="copy_all" description="Copies files to joomla.">
+		<echo message="Running build.xml. Copying site-files joomla..." />
+		<copy todir="${site}">
+		    <fileset refid="sitefiles" />
+		</copy>
+		<echo message="Running build.xml. Copying admin-files to joomla..." />
+		<copy todir="${admin}">
+		    <fileset refid="adminfiles" />
+		</copy>
+	</target>
+</project>

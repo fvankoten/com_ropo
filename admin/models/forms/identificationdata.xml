@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="COM_ROPO_IDENTIFICATIONDATA_FIELDSET_TYPE">
+		<field name="id" type="hidden" />
+		<field name="system_id" type="hidden" 
+			label="COM_ROPO_SYSTEM_ID_LABEL" description="COM_ROPO_SYSTEM_ID_DESC" />
+		<field name="type_of_controller"
+			type="radio" 
+			default="NATURAL"
+			label="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_TYPE_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_TYPE_DESC"
+			>
+			<option value="NATURAL">COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_TYPE_NATURAL</option>
+			<option value="LEGAL">COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_TYPE_LEGAL</option>
+		</field>
+	</fieldset>
+	<fieldset name="COM_ROPO_IDENTIFICATIONDATA_FIELDSET_CONTROLLER">
+		<field name="controller_name" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_NAME_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_NAME_DESC"
+			/>
+		<field name="controller_address1" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_ADDRESS1_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_ADDRESS1_DESC"
+			/>
+		<field name="controller_postalcode" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_POSTALCODE_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_POSTALCODE_DESC"
+			/>
+		<field name="controller_city" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_CITY_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_CITY_DESC"
+			/>
+		<field name="controller_regno" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_REGNO_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_REGNO_DESC"
+			/>
+		<field name="controller_telephone" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_CONTROLLLER_TELEPHONE_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_CONTROLLLER_TELEPHONE_DESC"
+			/>
+		<field name="controller_telefax" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_TELEFAX_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_TELEFAX_DESC"
+			/>
+		<field name="controller_mail" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_MAIL_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_MAIL_DESC"
+			/>
+		<field name="controller_website" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_WEBSITE_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_WEBSITE_DESC"
+			/>
+	</fieldset>
+	<fieldset name="COM_ROPO_IDENTIFICATIONDATA_FIELDSET_PROCESSOR">
+		<field name="pocessor_name" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_NAME_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_NAME_DESC"
+			/>
+		<field name="pocessor_address1" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_ADDRESS1_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_ADDRESS1_DESC"
+			/>
+		<field name="pocessor_postalcode" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_POSTALCODE_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_POSTALCODE_DESC"
+			/>
+		<field name="pocessor_city" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_CITY_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_CITY_DESC"
+			/>
+		<field name="pocessor_telephone" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_TELEPHONE_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_TELEPHONE_DESC"
+			/>
+		<field name="pocessor_telefax" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_TELEFAX_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_TELEFAX_DESC"
+			/>
+		<field name="pocessor_mail" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_MAIL_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_MAIL_DESC"
+			/>
+		<field name="pocessor_operations" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_OPERATIONS_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_OPERATIONS_DESC"
+			/>
+	</fieldset>
+	<fieldset name="COM_ROPO_IDENTIFICATIONDATA_FIELDSET_PLACE">
+		<field name="place_name" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_PLACE_NAME_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_PLACE_NAME_DESC"
+			/>
+		<field name="place_address1" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_PLACE_ADDRESS1_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_PLACE_ADDRESS1_DESC"
+			/>
+		<field name="place_postalcode" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_PLACE_POSTALCODE_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_PLACE_POSTALCODE_DESC"
+			/>
+		<field name="place_city" type="text" 
+			label="COM_ROPO_IDENTIFICATIONDATA_PLACE_CITY_LABEL" description="COM_ROPO_IDENTIFICATIONDATA_PLACE_CITY_DESC"
+			/>
+	</fieldset>
+</form>
