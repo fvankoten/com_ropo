@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="COM_ROPO_SYSTEM_FIELDSET">
+		<field name="id" type="hidden" label="COM_ROPO_REGNO_LABEL" description="COM_ROPO_REGNO_DESC" />
+		<field name="regno" type="hidden" label="COM_ROPO_SYSTEM_REGNO_LABEL" description="COM_ROPO_SYSTEM_REGNO_DESC" />
+		<field name="version" type="hidden" label="COM_ROPO_SYSTEM_VERSION_LABEL" description="COM_ROPO_SYSTEM_VERSION_DESC" default="1" />
+		
+		<field name="title" type="text" size="80" required="true"
+			label="COM_ROPO_SYSTEM_TITLE_LABEL" description="COM_ROPO_SYSTEM_TITLE_DESC" />
+		
+		<field name="purpose" type="textarea" rows="2" cols="80"
+			label="COM_ROPO_SYSTEM_PURPOSE_LABEL" description="COM_ROPO_SYSTEM_PURPOSE_DESC" />
+		
+		<field name="created_time" type="calendar" label="COM_ROPO_SYSTEM_CREATED_TIME_LABEL" description="COM_ROPO_SYSTEM_CREATED_TIME_DESC"
+			size="22" format="%Y-%m-%d %H:%M:%S"
+			readonly="true" class="readonly" />
+		
+		<field name="created_user_id" type="user" label="COM_ROPO_SYSTEM_CREATED_USERID_LABEL" description="COM_ROPO_SYSTEM_CREATED_USERID_DESC" 
+			readonly="true" class="readonly"/>
+
+		<field name="modified_time" type="calendar" label="COM_ROPO_SYSTEM_MODIFIED_TIME_LABEL" description="COM_ROPO_SYSTEM_MODIFIED_TIME_DESC"
+			size="22" format="%Y-%m-%d %H:%M:%S"
+			readonly="true" class="readonly" />
+
+		<field name="modified_user_id" type="user" label="COM_ROPO_SYSTEM_MODIFIED_USERID_LABEL" description="COM_ROPO_SYSTEM_MODIFIED_USERID_DESC" 
+			class="readonly" readonly="true" filter="unset" />
+
+	</fieldset>
+</form>

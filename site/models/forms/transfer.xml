@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="COM_ROPO_TRANSFER_FIELDSET">
+		<field name="id" type="hidden" />
+		<field name="transfer_enabled" type="checkbox" value="1" 
+			label="COM_ROPO_TRANSFER_ENABLED_LABEL" description="COM_ROPO_TRANSFER_ENABLED_DESC" />
+		<field name="transfer_country" type="text" size="80"  
+			label="COM_ROPO_TRANSFER_COUNTRY_LABEL" description="COM_ROPO_TRANSFER_COUNTRY_DESC" />
+		<field name="transfer_recipient" type="textarea" rows="2" cols="80"  
+			label="COM_ROPO_TRANSFER_RECIPIENT_LABEL" description="COM_ROPO_TRANSFER_RECIPIENT_DESC" />
+		<field name="transfer_foreign_user" type="textarea" rows="2" cols="80"  
+			label="COM_ROPO_TRANSFER_FOREIGN_USER_LABEL" description="COM_ROPO_TRANSFER_FOREIGN_USER_DESC" />
+		<field name="transfer_purpose" type="textarea" rows="2" cols="80"
+			label="COM_ROPO_TRANSFER_PURPOSE_LABEL" description="COM_ROPO_TRANSFER_PURPOSE_DESC" />
+		<field name="transfer_legal_basis" type="textarea" rows="2" cols="80"
+			label="COM_ROPO_TRANSFER_LEGAL_BASIS_LABEL" description="COM_ROPO_TRANSFER_LEGAL_BASIS_DESC" />
+		<field name="transfer_frequency" type="radio"
+			label="COM_ROPO_TRANSFER_FREQUENCY_LABEL" description="COM_ROPO_TRANSFER_FREQUENCY_DESC" >
+			<option value="ONCE">COM_ROPO_TRANSFER_FREQUENCY_ONCE</option>
+			<option value="CONTINUOUSLY">COM_ROPO_TRANSFER_FREQUENCY_CONTINUOUSLY</option>
+			<option value="PERIODICALLY">COM_ROPO_TRANSFER_FREQUENCY_PERIODICALLY</option>
+		</field>
+		<field name="transfer_period" type="integer" first="1" last="100"  step="1"
+			label="COM_ROPO_TRANSFER_PERIOD_LABEL" description="COM_ROPO_TRANSFER_PERIOD_DESC" />
+		<field name="transfer_authorization" type="textarea" rows="2" cols="80"
+			label="COM_ROPO_TRANSFER_AUTHORIZATION_LABEL" description="COM_ROPO_TRANSFER_AUTHORIZATION_DESC" />
+	</fieldset>
+</form>

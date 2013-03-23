@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="COM_ROPO_DISCLOSURE_FIELDSET">
+		<field name="id" type="hidden" />
+		<field name="disclosure_enabled" type="checkbox" value="1" 
+			label="COM_ROPO_DISCLOSURE_ENABLED_LABEL" description="COM_ROPO_DISCLOSURE_ENABLED_DESC" />
+		<field name="disclosure_recipient" type="textarea" rows="2" cols="80"  
+			label="COM_ROPO_DISCLOSURE_RECIPIENT_LABEL" description="COM_ROPO_DISCLOSURE_RECIPIENT_DESC" />
+		<field name="disclosure_purpose" type="textarea" rows="2" cols="80"
+			label="COM_ROPO_DISCLOSURE_PURPOSE_LABEL" description="COM_ROPO_DISCLOSURE_PURPOSE_DESC" />
+	</fieldset>
+</form>

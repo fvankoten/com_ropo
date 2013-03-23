@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+fieldset.adminform label {
+	width: 200px;
+}
+
+table.progressbar {
+	table-layout: fixed;
+	width: 100%;
+}
+
+table.progressbar td.progress {
+	padding: 2px;
+	border: 1px solid #c0c0c0;
+}
+
+table.progressbar td.progress.done {
+	background-color: green;
+}
+
+table.progressbar td.progress.todo {
+	background-color: none;
+}
+
+div.chapterhelp {
+	border: 1px solid #C0C0C0;
+    margin: 10px;
+    padding: 5px;
+}

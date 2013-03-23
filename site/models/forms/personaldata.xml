@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="COM_ROPO_SPECIAL_CATEGORIES_OF_PERSONAL_DATA_FIELDSET">
+		<field name="id" type="hidden" />
+		<field name="personaldata_health" type="checkbox" value="1" 
+			label="COM_ROPO_PERSONALDATA_HEALTH_LABEL" description="COM_ROPO_PERSONALDATA_HEALTH_DESC" />
+		<field name="personaldata_political_opinions" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_POLITICAL_OPINIONS_LABEL" description="COM_ROPO_PERSONALDATA_POLITICAL_OPINIONS_DESC" />
+		<field name="personaldata_racial_origin" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_RACIAL_ORIGIN_LABEL" description="COM_ROPO_PERSONALDATA_RACIAL_ORIGIN_DESC" />
+		<field name="personaldata_religious_beliefs" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_RELIGIOUS_BELIEFS_LABEL" description="COM_ROPO_PERSONALDATA_RELIGIOUS_BELIEFS_DESC" />
+		<field name="personaldata_sexlife" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_SEXLIFE_LABEL" description="COM_ROPO_PERSONALDATA_SEXLIFE_DESC" />
+		<field name="personaldata_trade_union_membership" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_TRADE_UNION_MEMBERSHIP_LABEL" description="COM_ROPO_PERSONALDATA_TRADE_UNION_MEMBERSHIP_DESC" />
+	</fieldset>
+	
+	<fieldset name="COM_ROPO_OTHER_CATEGORIES_OF_PERSONAL_DATA_FIELDSET">
+		<field name="personaldata_biometric_data" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_BIOMETRIC_DATA_LABEL" description="COM_ROPO_PERSONALDATA_BIOMETRIC_DATA_DESC" />
+		<field name="personaldata_identification_data" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_IDENTIFICATION_DATA_LABEL" description="COM_ROPO_PERSONALDATA_IDENTIFICATION_DATA_DESC" />
+		<field name="personaldata_personal_detail_data" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_PERSONAL_DETAIL_DATA_LABEL" description="COM_ROPO_PERSONALDATA_PERSONAL_DETAIL_DATA_DESC" />
+		<field name="personaldata_address_detail_data" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_ADDRESS_DETAIL_DATA_LABEL" description="COM_ROPO_PERSONALDATA_ADDRESS_DETAIL_DATA_DESC" />
+		<field name="personaldata_residence_details" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_RESIDENCE_DETAILS_LABEL" description="COM_ROPO_PERSONALDATA_RESIDENCE_DETAILS_DESC" />
+		<field name="personaldata_video_surveillance" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_VIDEO_SURVEILLANCE_LABEL" description="COM_ROPO_PERSONALDATA_VIDEO_SURVEILLANCE_DESC" />
+		<field name="personaldata_economic_data" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_ECONOMIC_DATA_LABEL" description="COM_ROPO_PERSONALDATA_ECONOMIC_DATA_DESC" />
+		<field name="personaldata_professional_life" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_PROFESSIONAL_LIFE_LABEL" description="COM_ROPO_PERSONALDATA_PROFESSIONAL_LIFE_DESC" />
+		<field name="personaldata_audio" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_AUDIO_LABEL" description="COM_ROPO_PERSONALDATA_AUDIO_DESC" />
+		<field name="personaldata_photo" type="checkbox" value="1"  
+			label="COM_ROPO_PERSONALDATA_PHOTO_LABEL" description="COM_ROPO_PERSONALDATA_PHOTO_DESC" />
+		<field name="personaldata_other" type="textarea" rows="2" cols="80"  
+			label="COM_ROPO_PERSONALDATA_OTHER_LABEL" description="COM_ROPO_PERSONALDATA_OTHER_DESC" /> 
+	</fieldset>
+</form>

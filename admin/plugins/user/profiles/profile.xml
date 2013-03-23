@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<form>
+	<fields name="ropoprofile">
+		<fieldset name="ropoprofile" label="PLG_USER_ROPOPROFILE_SLIDER_LABEL">
+			<field name="address1" type="text" id="address1"
+				description="PLG_USER_ROPOPROFILE_FIELD_ADDRESS1_DESC" filter="string"
+				label="PLG_USER_ROPOPROFILE_FIELD_ADDRESS1_LABEL" message="PLG_USER_ROPOPROFILE_FIELD_ADDRESS1_MESSAGE"
+				size="100" />
+			<field name="postalcode" type="text" id="postalcode"
+				description="PLG_USER_ROPOPROFILE_FIELD_POSTALCODE_DESC" filter="string"
+				label="PLG_USER_ROPOPROFILE_FIELD_POSTALCODE_LABEL" message="PLG_USER_ROPOPROFILE_FIELD_POSTALCODE_MESSAGE"
+				size="10" />
+			<field name="city" type="text" id="city"
+				description="PLG_USER_ROPOPROFILE_FIELD_CITY_DESC" filter="string"
+				label="PLG_USER_ROPOPROFILE_FIELD_CITY_LABEL" message="PLG_USER_ROPOPROFILE_FIELD_CITY_MESSAGE"
+				size="100" />
+			<field name="regno" type="text" id="regno"
+				description="PLG_USER_ROPOPROFILE_FIELD_REGNO_DESC" filter="string"
+				label="PLG_USER_ROPOPROFILE_FIELD_REGNO_LABEL" message="PLG_USER_ROPOPROFILE_FIELD_REGNO_MESSAGE"
+				size="100" />
+			<field name="telephone" type="text" id="telephone"
+				description="PLG_USER_ROPOPROFILE_FIELD_TELEPHONE_DESC" filter="string"
+				label="PLG_USER_ROPOPROFILE_FIELD_TELEPHONE_LABEL" message="PLG_USER_ROPOPROFILE_FIELD_TELEPHONE_MESSAGE"
+				size="100" />
+			<field name="telefax" type="text" id="telefax"
+				description="PLG_USER_ROPOPROFILE_FIELD_TELEFAX_DESC" filter="string"
+				label="PLG_USER_ROPOPROFILE_FIELD_TELEFAX_LABEL" message="PLG_USER_ROPOPROFILE_FIELD_TELEFAX_MESSAGE"
+				size="100" />
+			<field name="website" type="text" id="website"
+				description="PLG_USER_ROPOPROFILE_FIELD_WEBSITE_DESC" filter="string"
+				label="PLG_USER_ROPOPROFILE_FIELD_WEBSITE_LABEL" message="PLG_USER_ROPOPROFILE_FIELD_WEBSITE_MESSAGE"
+				size="100" />
+				
+			<field name="position"
+				type="radio" 
+				default="DPO"
+				description="PLG_USER_ROPOPROFILE_FIELD_POSITION_DESC"
+				label="PLG_USER_ROPOPROFILE_FIELD_POSITION_LABEL" message="PLG_USER_ROPOPROFILE_FIELD_POSITION_MESSAGE"
+				>
+				<option value="DPO">PLG_USER_ROPOPROFILE_FIELD_POSITION_DPO</option>
+				<option value="OTHER">PLG_USER_ROPOPROFILE_FIELD_POSITION_OTHER</option>
+			</field>
+				
+			<field name="other" type="text" id="other"
+				description="PLG_USER_ROPOPROFILE_FIELD_OTHER_DESC" filter="string"
+				label="PLG_USER_ROPOPROFILE_FIELD_OTHER_LABEL" message="PLG_USER_ROPOPROFILE_FIELD_OTHER_MESSAGE"
+				size="100" />
+		</fieldset>
+	</fields>
+</form>

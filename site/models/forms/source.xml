@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="COM_ROPO_ORIGIN_OF_PERSONAL_DATA_FIELDSET">
+		<field name="id" type="hidden" />
+		
+		<field name="sources_source_of_information" type="textarea" rows="3" cols="80" required="true"
+			label="COM_ROPO_SOURCES_SOURCE_OF_INFORMATION_LABEL" description="COM_ROPO_SOURCES_SOURCE_OF_INFORMATION_DESC" />
+		
+		<field name="sources_source_medium" type="textarea" rows="3" cols="80" required="true"
+			label="COM_ROPO_SOURCES_SOURCE_MEDIUM_LABEL" description="COM_ROPO_SOURCES_SOURCE_MEDIUM_DESC" />
+	</fieldset>
+	
+	<fieldset name="COM_ROPO_MANNER_OF_COLLECTION_FIELDSET">
+		<field name="sources_manner_manual" type="checkbox" value="1"
+			label="COM_ROPO_SOURCES_MANNER_MANUAL_LABEL" description="COM_ROPO_SOURCES_MANNER_MANUAL_DESC" />
+				
+		<field name="sources_manner_automatic" type="checkbox" value="1"
+			label="COM_ROPO_SOURCES_MANNER_AUTOMATIC_LABEL" description="COM_ROPO_SOURCES_MANNER_AUTOMATIC_DESC" />
+	</fieldset>
+</form>

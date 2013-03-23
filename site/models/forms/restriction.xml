@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="COM_ROPO_RESTRICTION_FIELDSET">
+		<field name="id" type="hidden" />
+		<field name="restriction_details" type="textarea" rows="3" cols="80"
+			label="COM_ROPO_RESTRICTION_DETAILS_LABEL" description="COM_ROPO_RESTRICTION_DETAILS_DESC" />
+		<field name="restriction_legal_basis" type="textarea" rows="3" cols="80"
+			label="COM_ROPO_RESTRICTION_LEGAL_BASIS_LABEL" description="COM_ROPO_RESTRICTION_LEGAL_BASIS_DESC" />
+	</fieldset>
+</form>

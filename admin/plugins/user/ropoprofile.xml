@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: -->
+<extension version="1.6" type="plugin" group="user">
+	<name>plg_user_ropoprofile</name>
+	<creationDate>March 2013</creationDate>
+	<copyright>Copyright Info</copyright>
+	<license>License Info</license>
+	<author>Florian van Koten</author>
+	<authorEmail>fvankoten@sns-it.de</authorEmail>
+	<authorUrl>http://www.sns-it.de</authorUrl>
+	<version>0.0.1</version>
+	<description>PLG_USER_ROPOPROFILE_XML_DESCRIPTION</description>
+
+	<files>
+		<filename plugin="ropoprofile">ropoprofile.php</filename>
+		<filename>index.html</filename>
+		<folder>profiles</folder>
+	</files>
+
+	<languages>
+		<language tag="en-GB">en-GB.plg_user_ropoprofile.ini</language>
+		<language tag="en-GB">en-GB.plg_user_ropoprofile.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+
+			<fieldset name="basic">
+				<field name="register-require-user" type="spacer"
+					label="PLG_USER_ROPOPROFILE_FIELD_NAME_REGISTER_REQUIRE_USER" />
+				<field name="register-require-address1" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_ADDRESS1_DESC" label="PLG_USER_ROPOPROFILE_FIELD_ADDRESS1_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				<field name="register-require-postalcode" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_POSTALCODE_DESC" label="PLG_USER_ROPOPROFILE_FIELD_POSTALCODE_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				<field name="register-require-city" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_CITY_DESC" label="PLG_USER_ROPOPROFILE_FIELD_CITY_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				<field name="register-require-regno" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_REGNO_DESC" label="PLG_USER_ROPOPROFILE_FIELD_REGNO_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				<field name="register-require-telephone" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_TELEPHONE_DESC" label="PLG_USER_ROPOPROFILE_FIELD_TELEPHONE_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				<field name="register-require-telefax" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_TELEFAX_DESC" label="PLG_USER_ROPOPROFILE_FIELD_TELEFAX_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				<field name="register-require-website" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_WEBSITE_DESC" label="PLG_USER_ROPOPROFILE_FIELD_WEBSITE_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+
+
+				<field name="profile-require-user" type="spacer"
+					label="PLG_USER_ROPOPROFILE_FIELD_NAME_PROFILE_REQUIRE_USER" />
+				<field name="profile-require-address1" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_ADDRESS1_DESC" label="PLG_USER_ROPOPROFILE_FIELD_ADDRESS1_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				<field name="profile-require-postalcode" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_POSTALCODE_DESC" label="PLG_USER_ROPOPROFILE_FIELD_POSTALCODE_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				<field name="profile-require-city" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_CITY_DESC" label="PLG_USER_ROPOPROFILE_FIELD_CITY_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				<field name="profile-require-regno" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_REGNO_DESC" label="PLG_USER_ROPOPROFILE_FIELD_REGNO_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				<field name="profile-require-telephone" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_TELEPHONE_DESC" label="PLG_USER_ROPOPROFILE_FIELD_TELEPHONE_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				<field name="profile-require-telefax" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_TELEFAX_DESC" label="PLG_USER_ROPOPROFILE_FIELD_TELEFAX_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				<field name="profile-require-website" type="list"
+					description="PLG_USER_ROPOPROFILE_FIELD_WEBSITE_DESC" label="PLG_USER_ROPOPROFILE_FIELD_WEBSITE_LABEL">
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+
+			</fieldset>
+
+		</fields>
+	</config>
+</extension>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="COM_ROPO_DATA_DATE_OF_ESTABLISHMENT_FIELDSET">
+		<field name="id" type="hidden" />
+		<field name="data_established_time" type="calendar" format="%Y-%m-%d %H:%M:%S" 
+			label="COM_ROPO_DATA_ESTABLISHED_TIME_LABEL" description="COM_ROPO_DATA_ESTABLISHED_TIME_DESC" />
+	</fieldset>
+	
+	<fieldset name="COM_ROPO_DATA_PERIOD_OF_STORAGE_FIELDSET">
+		<field name="data_storage_period" type="text" size="80"  
+			label="COM_ROPO_DATA_STORAGE_PERIOD_LABEL" description="COM_ROPO_DATA_STORAGE_PERIOD_DESC" />
+		<field name="data_storage_legal_basis" type="text" size="80"  
+			label="COM_ROPO_DATA_STORAGE_LEGAL_BASIS_LABEL" description="COM_ROPO_DATA_STORAGE_LEGAL_BASIS_DESC" />
+		<field name="data_storage_purpose" type="text" size="80"  
+			label="COM_ROPO_DATA_STORAGE_PURPOSE_LABEL" description="COM_ROPO_DATA_STORAGE_PURPOSE_DESC" />
+	</fieldset>
+	
+	<fieldset name="COM_ROPO_DATA_PERIOD_OF_USAGE_FIELDSET">
+		<field name="data_usage_period" type="text" size="80"
+			label="COM_ROPO_DATA_USAGE_PERIOD_LABEL" description="COM_ROPO_DATA_USAGE_PERIOD_DESC" />
+		<field name="data_usage_legal_basis" type="text" size="80"  
+			label="COM_ROPO_DATA_USAGE_LEGAL_BASIS_LABEL" description="COM_ROPO_DATA_USAGE_LEGAL_BASIS_DESC" />
+		<field name="data_usage_purpose" type="text" size="80"  
+			label="COM_ROPO_DATA_USAGE_PURPOSE_LABEL" description="COM_ROPO_DATA_USAGE_PURPOSE_DESC" />
+	</fieldset>
+	
+	<fieldset name="COM_ROPO_DATA_DETAILS_ON_DATA_RETENTION_FIELDSET">
+		<field name="data_details" type="textara" rows="2" cols="80"
+			label="COM_ROPO_DATA_DETAILS_LABEL" description="COM_ROPO_DATA_DETAILS_DESC" />
+	</fieldset>
+</form>

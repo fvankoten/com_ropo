@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="COM_ROPO_DATASUBJECT_FIELDSET">
+		<field name="id" type="hidden" />
+		<field name="datasubject_civil_servants" type="checkbox" value="1"
+			label="COM_ROPO_DATASUBJECT_CIVIL_SERVANTS_LABEL" description="COM_ROPO_DATASUBJECT_CIVIL_SERVANTS_DESC" />
+		<field name="datasubject_clients" type="checkbox" value="1"  
+			label="COM_ROPO_DATASUBJECT_CLIENTS_LABEL" description="COM_ROPO_DATASUBJECT_CLIENTS_DESC" />
+		<field name="datasubject_employees" type="checkbox" value="1"  
+			label="COM_ROPO_DATASUBJECT_EMPLOYEES_LABEL" description="COM_ROPO_DATASUBJECT_EMPLOYEES_DESC" />
+		<field name="datasubject_members" type="checkbox" value="1"  
+			label="COM_ROPO_DATASUBJECT_MEMBERS_LABEL" description="COM_ROPO_DATASUBJECT_MEMBERS_DESC" />
+		<field name="datasubject_patients" type="checkbox" value="1"  
+			label="COM_ROPO_DATASUBJECT_PATIENTS_LABEL" description="COM_ROPO_DATASUBJECT_PATIENTS_DESC" />
+		<field name="datasubject_shareholders" type="checkbox" value="1"  
+			label="COM_ROPO_DATASUBJECT_SHAREHOLDERS_LABEL" description="COM_ROPO_DATASUBJECT_SHAREHOLDERS_DESC" />
+		<field name="datasubject_social_assistence_users" type="checkbox" value="1"  
+			label="COM_ROPO_DATASUBJECT_SOCIAL_ASSISTENCE_USERS_LABEL" description="COM_ROPO_DATASUBJECT_SOCIAL_ASSISTENCE_USERS_DESC" />
+		<field name="datasubject_students" type="checkbox" value="1"  
+			label="COM_ROPO_DATASUBJECT_STUDENTS_LABEL" description="COM_ROPO_DATASUBJECT_STUDENTS_DESC" />
+		<field name="datasubject_suppliers" type="checkbox" value="1"  
+			label="COM_ROPO_DATASUBJECT_SUPPLIERS_LABEL" description="COM_ROPO_DATASUBJECT_SUPPLIERS_DESC" />
+		<field name="datasubject_other" type="textarea" rows="2" cols="80"  
+			label="COM_ROPO_DATASUBJECT_OTHER_LABEL" description="COM_ROPO_DATASUBJECT_OTHER_DESC" />
+	</fieldset>
+</form>
