@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="file" version="0.0.1" method="upgrade">
+	<name>PDF Renderer</name>
+	<version>0.0.1</version>
+	<author>Florian van Koten</author>
+	<authorEmail>fvankoten@sns-it.de</authorEmail>
+	<authorUrl>http://www.sns-it.de</authorUrl>
+	
+	<fileset>
+		<files folder="pdf" target="libraries/joomla/document/pdf">
+			<filename>pdf.php</filename>
+			<filename>index.html</filename>
+			<folder>renderer</folder>
+		</files>
+	</fileset>
+</extension>

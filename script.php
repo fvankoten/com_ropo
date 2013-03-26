@@ -25,6 +25,9 @@ class com_ropoInstallerScript
 		
 		$p_dir_dompdf = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'libraries'.DS.'dompdf'.DS;
 		$p_dir_dompdf = JPath::clean( $p_dir_dompdf );
+		
+		$p_dir_documentpdf = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'files'.DS.'documentpdf'.DS;
+		$p_dir_documentpdf = JPath::clean( $p_dir_documentpdf );
 
 		$this->_packages = array(
 			"ropoprofile" => array(
@@ -44,6 +47,12 @@ class com_ropoInstallerScript
 					"extractdir" => null,
 					"dir" => $p_dir_dompdf,
 					"type" => "library"
+			),
+			"documentpdf" => array(
+					"packagefile" => null,
+					"extractdir" => null,
+					"dir" => $p_dir_documentpdf,
+					"type" => "file"
 			)
 		);
 		
@@ -149,6 +158,19 @@ class com_ropoInstallerScript
 			} else {
 				echo "<p>" . JText::_('COM_ROPO_INSTALL_LIBRARY_DOMPDF_SUCCESS') . "</p>";
 				JFolder::delete($this->_packages['dompdf']['dir']);
+			}
+			
+			if (($installresult & 0x04) == 0) {
+				JError::raiseWarning(
+				100,
+				JText::_(
+				'PDF Renderer files not installed. '
+						. 'Please install it manually from the following folder'
+								) . ': '.$this->_packages['documentpdf']['dir']
+				);
+			} else {
+				echo "<p>" . JText::_('COM_ROPO_INSTALL_FILES_DOUMENTPDF_SUCCESS') . "</p>";
+				JFolder::delete($this->_packages['documentpdf']['dir']);
 			}
 			
 			//if ($route == 'install') {
