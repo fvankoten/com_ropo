@@ -109,4 +109,23 @@ class RopoModelSystem extends JModelAdmin
 		
 		return parent::validate($form, $data, $group);
 	}
+	
+	protected function prepareTable(&$table)
+	{
+		switch($table->state) {
+			case 'INITIALIZED':
+			case 'COMPLETED':
+				// nothing to do
+				break;
+			case 'PENDING':
+			case 'APPROVED':
+			case 'NOTAPPROVED':
+			case 'DELETED':
+				$table->id = 0;
+				$table->version++;
+				$table->state = 'INITIALIZED';
+				break;
+			default:
+		}
+	}
 }

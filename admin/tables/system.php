@@ -77,11 +77,11 @@ class RopoTableSystem extends JTable
 
 		// Attempt to store the data.
 		$result = parent::store($updateNulls);
-		if ($result && isNew) {
+		if ($result && $isNew && ($this->regno == '')) {
 			$this->regno = $this->id;
 			$result = parent::store($updateNulls);
 		}
 
-		return result;
+		return $result;
 	}
 }

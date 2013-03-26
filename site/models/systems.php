@@ -28,4 +28,22 @@ class RopoModelSystems extends JModelList
 		$query->from('#__ropo_systems');
 		return $query;
 	}
+	
+	protected function _getList($query, $limitstart = 0, $limit = 0)
+	{
+		$this->_db->setQuery($query, $limitstart, $limit);
+		$items = $this->_db->loadObjectList();
+		
+		// filter older versions
+		$itemsFilterd = array();
+		foreach ($items as $item) {
+			if (isset($itemsFilterd[$item->regno]) && ($itemsFilterd[$item->regno]->version > $item->version)) {
+				// skip
+			} else {
+				$itemsFilterd[$item->regno] = $item;
+			}
+		}
+			
+		return array_values($itemsFilterd);
+	}
 }

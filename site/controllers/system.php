@@ -7,7 +7,7 @@ jimport('joomla.application.component.controllerform');
 
 /**
  * System Controller
- */
+*/
 class RopoControllerSystem extends JControllerForm
 {
 	protected $systemviews = array(
@@ -25,13 +25,13 @@ class RopoControllerSystem extends JControllerForm
 			'security',
 			'applicant'
 	);
-	
+
 	public function __construct($config = array())
 	{
 		parent::__construct($config);
 		$this->view_list = 'systems';
 	}
-	
+
 	public function getModel($name = '', $prefix = '', $config = array('ignore_request' => true))
 	{
 		if (empty($name)) {
@@ -39,17 +39,17 @@ class RopoControllerSystem extends JControllerForm
 		}
 		return parent::getModel($name, $prefix, $config);
 	}
-	
+
 	public function prev($key = null, $urlVar = null)
 	{
 		return $this->step(-1, $key, $urlVar);
 	}
-	
+
 	public function next($key = null, $urlVar = null)
 	{
 		return $this->step(1, $key, $urlVar);
 	}
-	
+
 	public function step($add, $key = null, $urlVar = null)
 	{
 		// Initialise variables.
@@ -58,7 +58,7 @@ class RopoControllerSystem extends JControllerForm
 		$model = $this->getModel($view);
 		$table = $model->getTable();
 		$data  = JRequest::getVar('jform', array(), 'post', 'array');
-		
+
 		$this->task = 'apply';
 
 		// Determine the name of the primary key for the data.
@@ -74,31 +74,31 @@ class RopoControllerSystem extends JControllerForm
 		}
 
 		$recordId = JRequest::getInt($urlVar);
-		
+
 		// Populate the row id from the session.
 		$data[$key] = $recordId;
-		
+
 		$success = $this->save($key, $urlVar);
 		if ($success) {
 			$state = $app->getUserState($this->option . '.edit.' . $this->context . '.id');
-			$recordId = (int)$state[0];
-			
+			$recordId = (int)$state[count($state)];
+				
 			$currentView = (int)array_search($view, $this->systemviews);
 			$currentView += $add;
 			if ($currentView < 0 || $currentView >= count($this->systemviews)) {
 				$currentView = 0;
 			}
-						
+
 			$this->setRedirect(
-				JRoute::_(
-					'index.php?option=' . $this->option . '&view=' . $this->systemviews[$currentView]
-					. $this->getRedirectToItemAppend($recordId, $urlVar), false
-				)
+					JRoute::_(
+							'index.php?option=' . $this->option . '&view=' . $this->systemviews[$currentView]
+							. $this->getRedirectToItemAppend($recordId, $urlVar), false
+					)
 			);
 		} else {
 			$state = $app->getUserState($this->option . '.edit.' . $this->context . '.id');
 			$recordId = (int)$state[0];
-				
+
 			$currentView = (int)array_search($view, $this->systemviews);
 			$this->setRedirect(
 					JRoute::_(
@@ -107,7 +107,22 @@ class RopoControllerSystem extends JControllerForm
 					)
 			);
 		}
-		
+
+		return $success;
+	}
+
+	public function commit($key = null, $urlVar = null)
+	{
+		$success = $this->step(0, $key, $urlVar);
+		if ($success) {
+			$this->setRedirect(
+					JRoute::_(
+							'index.php?option=' . $this->option . '&view=' . $this->view_list
+							. $this->getRedirectToListAppend()
+					)
+			);
+		}
+
 		return $success;
 	}
 }

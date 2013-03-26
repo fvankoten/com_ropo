@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="library" version="0.6.0 beta 3" method="upgrade">
+	<name>domPDF</name>
+	<version>0.6.0 beta 3</version>
+	<libraryname>dompdf</libraryname>
+	<files folder="dompdf">
+		<filename>changelog.txt</filename>
+		<filename>docblox.dist.xml</filename>
+		<filename>dompdf_config.custom.inc.php</filename>
+		<filename>dompdf_config.inc.php</filename>
+		<filename>dompdf.php</filename>
+		<filename>index.php</filename>
+		<filename>LICENSE.LGPL</filename>
+		<filename>load_font.php</filename>
+		<filename>readme.html</filename>
+		<folder>include</folder>
+		<folder>lib</folder>
+		<folder>www</folder>
+	</files>
+</extension>

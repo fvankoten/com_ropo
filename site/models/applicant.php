@@ -17,4 +17,10 @@ class RopoModelApplicant extends RopoModelSystem
 		$this->_identifier = 'applicant';
 	}
 	
+	public function save($data)
+	{
+		$data['state'] = 'COMPLETED';
+		return parent::save($data);
+	}
+	
 }

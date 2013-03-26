@@ -3,7 +3,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 /**
- * Script file of HelloWorld component
+ * Script file of ROPO component
  */
 class com_ropoInstallerScript
 {
@@ -17,11 +17,14 @@ class com_ropoInstallerScript
 	public function __construct(JAdapterInstance $adapter)
 	{
 		// Get the path to the package to install
-		$p_dir_user = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'plugins'.DS.'user'.DS;
+		$p_dir_user = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'plugins'.DS.'user'.DS;
 		$p_dir_user = JPath::clean( $p_dir_user );
 		
-		$p_dir_auth = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'plugins'.DS.'authentication'.DS;
+		$p_dir_auth = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'plugins'.DS.'authentication'.DS;
 		$p_dir_auth = JPath::clean( $p_dir_auth );
+		
+		$p_dir_dompdf = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'libraries'.DS.'dompdf'.DS;
+		$p_dir_dompdf = JPath::clean( $p_dir_dompdf );
 
 		$this->_packages = array(
 			"ropoprofile" => array(
@@ -35,6 +38,12 @@ class com_ropoInstallerScript
 				"extractdir" => null,
 				"dir" => $p_dir_auth,
 				"type" => "authentication"
+			),
+			"dompdf" => array(
+					"packagefile" => null,
+					"extractdir" => null,
+					"dir" => $p_dir_dompdf,
+					"type" => "library"
 			)
 		);
 		
@@ -127,6 +136,19 @@ class com_ropoInstallerScript
 			} else {
 				echo "<p>" . JText::_('COM_ROPO_INSTALL_PLUGIN_EMAIL_SUCCESS') . "</p>";
 				JFolder::delete($this->_packages['email']['dir']);
+			}
+			
+			if (($installresult & 0x04) == 0) {
+				JError::raiseWarning(
+				100,
+				JText::_(
+				'dompdf library not installed. '
+						. 'Please install it manually from the following folder'
+								) . ': '.$this->_packages['dompdf']['dir']
+				);
+			} else {
+				echo "<p>" . JText::_('COM_ROPO_INSTALL_LIBRARY_DOMPDF_SUCCESS') . "</p>";
+				JFolder::delete($this->_packages['dompdf']['dir']);
 			}
 			
 			//if ($route == 'install') {
