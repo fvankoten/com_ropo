@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="search">
+	<name>plg_search_ropo</name>
+	
+	<creationDate>March 2013</creationDate>
+	<copyright>Copyright Info</copyright>
+	<license>License Info</license>
+	<author>Florian van Koten</author>
+	<authorEmail>fvankoten@sns-it.de</authorEmail>
+	<authorUrl>http://www.sns-it.de</authorUrl>
+	<version>0.0.1</version>
+	<description>PLG_SEARCH_ROPO_XML_DESCRIPTION</description>
+	
+	<files>
+		<filename plugin="ropo">ropo.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.plg_search_ropo.ini</language>
+		<language tag="en-GB">en-GB.plg_search_ropo.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+
+			<fieldset name="basic">
+				<field name="search_limit" type="text"
+					default="50"
+					description="PLG_SEARCH_ROPO_FIELD_SEARCHLIMIT_DESC"
+					label="PLG_SEARCH_ROPO_FIELD_SEARCHLIMIT_LABEL"
+					size="5"
+				/>
+
+				<field name="search_content" type="radio"
+					default="0"
+					description="PLG_SEARCH_ROPO_FIELD_CONTENT_DESC"
+					label="PLG_SEARCH_ROPO_FIELD_CONTENT_LABEL"
+				>
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+
+				<field name="search_all" type="radio"
+					default="0"
+					description="PLG_SEARCH_ROPO_FIELD_ALL_DESC"
+					label="PLG_SEARCH_ROPO_FIELD_ALL_LABEL"
+				>
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+			</fieldset>
+
+		</fields>
+	</config>
+</extension>

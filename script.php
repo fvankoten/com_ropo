@@ -28,6 +28,9 @@ class com_ropoInstallerScript
 		
 		$p_dir_documentpdf = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'files'.DS.'documentpdf'.DS;
 		$p_dir_documentpdf = JPath::clean( $p_dir_documentpdf );
+		
+		$p_dir_search = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'plugins'.DS.'search'.DS;
+		$p_dir_search = JPath::clean( $p_dir_search );
 
 		$this->_packages = array(
 			"ropoprofile" => array(
@@ -53,6 +56,12 @@ class com_ropoInstallerScript
 					"extractdir" => null,
 					"dir" => $p_dir_documentpdf,
 					"type" => "file"
+			),
+			"search" => array(
+					"packagefile" => null,
+					"extractdir" => null,
+					"dir" => $p_dir_search,
+					"type" => "search"
 			)
 		);
 		
@@ -160,7 +169,7 @@ class com_ropoInstallerScript
 				JFolder::delete($this->_packages['dompdf']['dir']);
 			}
 			
-			if (($installresult & 0x04) == 0) {
+			if (($installresult & 0x08) == 0) {
 				JError::raiseWarning(
 				100,
 				JText::_(
@@ -171,6 +180,19 @@ class com_ropoInstallerScript
 			} else {
 				echo "<p>" . JText::_('COM_ROPO_INSTALL_FILES_DOUMENTPDF_SUCCESS') . "</p>";
 				JFolder::delete($this->_packages['documentpdf']['dir']);
+			}
+			
+			if (($installresult & 0x10) == 0) {
+				JError::raiseWarning(
+				100,
+				JText::_(
+				'ROPO Search Plugin not installed. '
+						. 'Please install it manually from the following folder'
+								) . ': '.$this->_packages['search']['dir']
+				);
+			} else {
+				echo "<p>" . JText::_('COM_ROPO_INSTALL_PLUGIN_SEARCH_SUCCESS') . "</p>";
+				JFolder::delete($this->_packages['search']['dir']);
 			}
 			
 			//if ($route == 'install') {
