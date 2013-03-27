@@ -25,6 +25,9 @@ class RopoViewPublicsystem extends JViewLegacy
 		// Assign the Data
 		$this->item = $item;
 		
+		$document = JFactory::getDocument();
+		$document->setName($this->item->title);
+		
 		// Display the template
 		parent::display('pdf');
 	}

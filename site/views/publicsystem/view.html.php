@@ -10,11 +10,19 @@ jimport('joomla.application.component.view');
  */
 class RopoViewPublicsystem extends JViewLegacy
 {
+	
+	protected $state;
+	protected $item;
+	
 	// Overwriting JView display method
 	function display($tpl = null)
 	{
-		// get the Data
-		$item = $this->get('Item');
+		$app = JFactory::getApplication();
+		$params = $app->getParams();
+
+		// Get some data from the models
+		$this->state = $this->get('State');
+		$this->item = $this->get('Item');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -22,9 +30,7 @@ class RopoViewPublicsystem extends JViewLegacy
 			JError::raiseError(500, implode('<br />', $errors));
 			return false;
 		}
-		// Assign the Data
-		$this->item = $item;
-		
+				
 		// Display the template
 		parent::display($tpl);
 	}
