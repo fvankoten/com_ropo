@@ -10,7 +10,7 @@ defined('_JEXEC') or die('Restricted Access');
 </tr>
 <tr>
 	<td colspan="2">
-		<input type="checkbox" 
+		<input type="checkbox" readonly="readonly"
 			<?php if ($this->item->purposes_established_by_law == 1) : ?>
 			checked="checked"
 			<?php endif; ?>
@@ -24,7 +24,7 @@ defined('_JEXEC') or die('Restricted Access');
 </tr>
 <tr>
 	<td colspan="2">
-		<input type="checkbox" 
+		<input type="checkbox" readonly="readonly"
 			<?php if ($this->item->	purposes_established_by_consent == 1) : ?>
 			checked="checked"
 			<?php endif; ?>
