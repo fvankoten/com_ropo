@@ -19,6 +19,9 @@ class RopoViewPublicsystem extends JViewLegacy
 	{
 		$app = JFactory::getApplication();
 		$params = $app->getParams();
+		
+		$document = JFactory::getDocument();
+		$document->addStyleSheet('media/com_ropo/css/ropo.css');
 
 		// Get some data from the models
 		$this->state = $this->get('State');

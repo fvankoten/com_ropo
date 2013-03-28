@@ -3,9 +3,9 @@
 defined('_JEXEC') or die('Restricted Access');
 ?>
 
-<tr><th colspan="2"><?php echo JText::_('COM_ROPO_DISCLOSURE') ?></th></tr>
+<tr class="level1"><th colspan="2"><?php echo JText::_('COM_ROPO_DISCLOSURE') ?></th></tr>
 <tr>
-	<td colspan="2">
+	<td colspan="2" class="col1">
 		<input type="checkbox" readonly="readonly"
 			<?php if ($this->item->disclosure_enabled == 0) : ?>
 			checked="checked"
@@ -15,7 +15,7 @@ defined('_JEXEC') or die('Restricted Access');
 	</td>
 </tr>
 <tr>
-	<td colspan="2">
+	<td colspan="2" class="col1">
 		<input type="checkbox" readonly="readonly"
 			<?php if ($this->item->disclosure_enabled == 1) : ?>
 			checked="checked"
@@ -25,10 +25,10 @@ defined('_JEXEC') or die('Restricted Access');
 	</td>
 </tr>
 <tr>
-	<td><?php echo JText::_('COM_ROPO_DISCLOSURE_RECIPIENT_LABEL') ?></td>
-	<td><?php echo $this->item->disclosure_recipient ?></td>
+	<td class="col1"><?php echo JText::_('COM_ROPO_DISCLOSURE_RECIPIENT_LABEL') ?></td>
+	<td class="col2"><?php echo $this->item->disclosure_recipient ?></td>
 </tr>
 <tr>
-	<td><?php echo JText::_('COM_ROPO_DISCLOSURE_PURPOSE_LABEL') ?></td>
-	<td><?php echo $this->item->disclosure_purpose ?></td>
+	<td class="col1"><?php echo JText::_('COM_ROPO_DISCLOSURE_PURPOSE_LABEL') ?></td>
+	<td class="col2"><?php echo $this->item->disclosure_purpose ?></td>
 </tr>

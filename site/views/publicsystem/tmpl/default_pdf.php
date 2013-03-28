@@ -5,7 +5,7 @@ defined('_JEXEC') or die('Restricted access');
 <h1><?php echo JText::_("COM_ROPO_SYSTEM")?></h1>
 
 <div id="accordion">
-	<table style="table-layout: fixed; width: 100%;">
+	<table style="table-layout: fixed; width: 100%;" id="publicsystem" class="pdf">
 		<tbody>
 			<?php echo $this->loadTemplate('system');?>
 			<?php echo $this->loadTemplate('identificationdata');?>

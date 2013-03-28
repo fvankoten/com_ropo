@@ -3,9 +3,9 @@
 defined('_JEXEC') or die('Restricted Access');
 ?>
 
-<tr><th colspan="2"><?php echo JText::_('COM_ROPO_TRANSFER') ?></th></tr>
+<tr class="level1"><th colspan="2"><?php echo JText::_('COM_ROPO_TRANSFER') ?></th></tr>
 <tr>
-	<td colspan="2">
+	<td colspan="2" class="col1">
 		<input type="checkbox" readonly="readonly"
 			<?php if ($this->item->transfer_enabled == 0) : ?>
 			checked="checked"
@@ -15,7 +15,7 @@ defined('_JEXEC') or die('Restricted Access');
 	</td>
 </tr>
 <tr>
-	<td colspan="2">
+	<td colspan="2" class="col1">
 		<input type="checkbox" readonly="readonly"
 			<?php if ($this->item->transfer_enabled == 1) : ?>
 			checked="checked"
@@ -25,28 +25,28 @@ defined('_JEXEC') or die('Restricted Access');
 	</td>
 </tr>
 <tr>
-	<td><?php echo JText::_('COM_ROPO_TRANSFER_COUNTRY_LABEL') ?></td>
-	<td><?php echo $this->item->transfer_country ?></td>
+	<td class="col1"><?php echo JText::_('COM_ROPO_TRANSFER_COUNTRY_LABEL') ?></td>
+	<td class="col2"><?php echo $this->item->transfer_country ?></td>
 </tr>
 <tr>
-	<td><?php echo JText::_('COM_ROPO_TRANSFER_RECIPIENT_LABEL') ?></td>
-	<td><?php echo $this->item->transfer_recipient ?></td>
+	<td class="col1"><?php echo JText::_('COM_ROPO_TRANSFER_RECIPIENT_LABEL') ?></td>
+	<td class="col2"><?php echo $this->item->transfer_recipient ?></td>
 </tr>
 <tr>
-	<td><?php echo JText::_('COM_ROPO_TRANSFER_FOREIGN_USER_LABEL') ?></td>
-	<td><?php echo $this->item->transfer_foreign_user ?></td>
+	<td class="col1"><?php echo JText::_('COM_ROPO_TRANSFER_FOREIGN_USER_LABEL') ?></td>
+	<td class="col2"><?php echo $this->item->transfer_foreign_user ?></td>
 </tr>
 <tr>
-	<td><?php echo JText::_('COM_ROPO_TRANSFER_PURPOSE_LABEL') ?></td>
-	<td><?php echo $this->item->transfer_purpose ?></td>
+	<td class="col1"><?php echo JText::_('COM_ROPO_TRANSFER_PURPOSE_LABEL') ?></td>
+	<td class="col2"><?php echo $this->item->transfer_purpose ?></td>
 </tr>
 <tr>
-	<td><?php echo JText::_('COM_ROPO_TRANSFER_LEGAL_BASIS_LABEL') ?></td>
-	<td><?php echo $this->item->transfer_legal_basis ?></td>
+	<td class="col1"><?php echo JText::_('COM_ROPO_TRANSFER_LEGAL_BASIS_LABEL') ?></td>
+	<td class="col2"><?php echo $this->item->transfer_legal_basis ?></td>
 </tr>
 <tr>
-	<td rowspan="3"><?php echo JText::_('COM_ROPO_TRANSFER_FREQUENCY_LABEL') ?></td>
-	<td>
+	<td rowspan="3" class="col1"><?php echo JText::_('COM_ROPO_TRANSFER_FREQUENCY_LABEL') ?></td>
+	<td class="col2">
 		<input type="radio" readonly="readonly"
 			<?php if ($this->item->transfer_frequency == 'ONCE') : ?>
 			checked="checked"
@@ -56,7 +56,7 @@ defined('_JEXEC') or die('Restricted Access');
 	</td>
 </tr>
 <tr>
-	<td>
+	<td class="col2">
 		<input type="radio" readonly="readonly"
 			<?php if ($this->item->transfer_frequency == 'CONTINUOUSLY') : ?>
 			checked="checked"
@@ -66,7 +66,7 @@ defined('_JEXEC') or die('Restricted Access');
 	</td>
 </tr>
 <tr>
-	<td>
+	<td class="col2">
 		<input type="radio" readonly="readonly"
 			<?php if ($this->item->transfer_frequency == 'PERIODICALLY') : ?>
 			checked="checked"
@@ -80,6 +80,6 @@ defined('_JEXEC') or die('Restricted Access');
 	</td>
 </tr>
 <tr>
-	<td><?php echo JText::_('COM_ROPO_TRANSFER_AUTHORIZATION_LABEL') ?></td>
-	<td><?php echo $this->item->transfer_authorization ?></td>
+	<td class="col1"><?php echo JText::_('COM_ROPO_TRANSFER_AUTHORIZATION_LABEL') ?></td>
+	<td class="col2"><?php echo $this->item->transfer_authorization ?></td>
 </tr>

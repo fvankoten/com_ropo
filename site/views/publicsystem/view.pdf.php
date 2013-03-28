@@ -15,6 +15,9 @@ class RopoViewPublicsystem extends JViewLegacy
 	{
 		// get the Data
 		$item = $this->get('Item');
+		
+		$document = JFactory::getDocument();
+		$document->addStyleSheet('media/com_ropo/css/ropo.css');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))

@@ -10,10 +10,21 @@ $this->document->addScriptDeclaration('
 	});
 ');
 ?>
+
 <h1><?php echo JText::_("COM_ROPO_SYSTEM")?></h1>
 
+<div>
+	<a href="<?php echo JRoute::_('index.php?option=com_ropo&view=publicsystem&id='.(int) $this->item->id); ?>&format=pdf&tmpl=component">
+		<?php echo JText::_('COM_ROPO_CREATE_PDF') ?>
+	</a>
+</div>
+
 <div id="accordion">
-	<table style="table-layout: fixed; width: 100%;">
+	<table style="table-layout: fixed; width: 100%;" id="publicsystem">
+		<colgroup>
+		    <col class="col1">
+		    <col class="col2">
+	  </colgroup>
 		<tbody>
 			<?php echo $this->loadTemplate('system');?>
 			<?php echo $this->loadTemplate('identificationdata');?>
@@ -30,5 +41,4 @@ $this->document->addScriptDeclaration('
 			<?php echo $this->loadTemplate('applicant');?>
 		</tbody>
 	</table>
-
 </div>

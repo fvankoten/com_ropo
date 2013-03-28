@@ -26,3 +26,33 @@ div.chapterhelp {
     margin: 10px;
     padding: 5px;
 }
+
+table#publicsystem {
+	border-collapse: collapse;
+}
+
+table#publicsystem col.col1 {
+	width: 40%;
+}
+
+#publicsystem tr, #publicsystem td, #publicsystem th {
+	border: 1px solid #333333;
+}
+
+#publicsystem tr.level1 {
+	background-color: #c0c0c0;
+}
+
+#publicsystem tr.level2 {
+	background-color: #e0e0e0;
+}
+
+#publicsystem th {
+	padding: 2px 1em;
+	text-align: left;
+}
+
+#publicsystem td {
+	padding: 2px 2em;
+	text-align: left;
+} 
