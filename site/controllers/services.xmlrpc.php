@@ -25,20 +25,58 @@ class RopoControllerServices extends JControllerLegacy
 
 		$db->setQuery($query);
 		$items = $db->loadAssocList();
-
-		return "Count of Systems = " . count($items);
+		
+		return $items;
 	}
 
-	public function wsdl() {
-		$namespace = JURI::base() . '?wsdl';
+	public function soap() {
+		$namespace = JURI::base() . 'roposervices';
+		$endpoint = JURI::base() . 'index.php?option=com_ropo&task=services.soap&format=xmlrpc';
 
 		$server = new soap_server();
-		$server->configureWSDL('ropo', $namespace);
+		$server->configureWSDL('ropo', $namespace, urlencode($endpoint));
+		
+		$server->wsdl->addComplexType(
+				'system', // name
+				'complextType', // typeClass (complexType|simpleType|attribute)
+				'struct', // phpType: currently supported are array and struct (php assoc array)
+				'all', // compositor (all|sequence|choice)
+				'', // restrictionBase namespace:name (http://schemas.xmlsoap.org/soap/encoding/:Array)
+				// elements = array ( name = array(name=>'',type=>'') )
+				array(
+						'id' => array('name' => 'id', 'type' => 'xsd:int'),
+						'regno' => array('name' => 'regno', 'type' => 'xsd:int'),
+						'version' => array('name' => 'version', 'type' => 'xsd:int'),
+						'title' => array('name' => 'title', 'type' => 'xsd:string'),
+						'created_time' => array('name' => 'created_time', 'type' => 'xsd:string'),
+						'modified_time' => array('name' => 'modified_time', 'type' => 'xsd:string'),
+						'state' => array('name' => 'state', 'type' => 'xsd:string')
+				)
+		);
+		
+		$server->wsdl->addComplexType(
+				'systemList', // name
+				'complextType', // typeClass (complexType|simpleType|attribute)
+				'array', // phpType: currently supported are array and struct (php assoc array)
+				'', // compositor (all|sequence|choice)
+				'SOAP-ENC:Array', // restrictionBase namespace:name (http://schemas.xmlsoap.org/soap/encoding/:Array)
+				// elements = array ( name = array(name=>'',type=>'') )
+				array(),
+				// attrs
+				array(
+						array(
+								'ref' => 'SOAP-ENC:arrayType',
+								'wsdl:arrayType' => 'tns:system[]'
+						)
+				),
+				// arrayType: namespace:name (http://www.w3.org/2001/XMLSchema:string)
+				'tns:system'
+		);
 
 		$server->register(
-				'getsystems', // method name
+				'getSystems', // method name
 				array(), // input parameters
-				array('return' => 'xsd:string'), // output parameters
+				array('return' => 'tns:systemList'), // output parameters
 				$namespace, // namespace
 				$namespace . '#getsystems', // soapaction
 				'rpc', // style
