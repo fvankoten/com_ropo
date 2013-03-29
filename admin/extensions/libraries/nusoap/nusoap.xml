@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="library" version="0.9.5" method="upgrade">
+	<name>nuSOAP</name>
+	<version>0.9.5</version>
+	<libraryname>nusoap</libraryname>
+	<files folder="nusoap">
+		<folder>lib</folder>
+	</files>
+</extension>

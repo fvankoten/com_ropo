@@ -31,6 +31,9 @@ class com_ropoInstallerScript
 		
 		$p_dir_search = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'plugins'.DS.'search'.DS;
 		$p_dir_search = JPath::clean( $p_dir_search );
+		
+		$p_dir_nusoap = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'libraries'.DS.'nusoap'.DS;
+		$p_dir_nusoap = JPath::clean( $p_dir_nusoap );
 
 		$this->_packages = array(
 			"ropoprofile" => array(
@@ -62,6 +65,12 @@ class com_ropoInstallerScript
 					"extractdir" => null,
 					"dir" => $p_dir_search,
 					"type" => "search"
+			),
+			"nusoap" => array(
+					"packagefile" => null,
+					"extractdir" => null,
+					"dir" => $p_dir_nusoap,
+					"type" => "library"
 			)
 		);
 		
@@ -193,6 +202,19 @@ class com_ropoInstallerScript
 			} else {
 				echo "<p>" . JText::_('COM_ROPO_INSTALL_PLUGIN_SEARCH_SUCCESS') . "</p>";
 				JFolder::delete($this->_packages['search']['dir']);
+			}
+			
+			if (($installresult & 0x20) == 0) {
+				JError::raiseWarning(
+						100,
+						JText::_(
+								'nuSOAP library not installed. '
+								. 'Please install it manually from the following folder'
+						) . ': '.$this->_packages['nusoap']['dir']
+				);
+			} else {
+				echo "<p>" . JText::_('COM_ROPO_INSTALL_LIBRARY_NUSOAP_SUCCESS') . "</p>";
+				JFolder::delete($this->_packages['nusoap']['dir']);
 			}
 			
 			//if ($route == 'install') {
