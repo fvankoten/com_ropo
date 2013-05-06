@@ -19,7 +19,7 @@ class RopoModelApplicant extends RopoModelSystem
 	
 	public function save($data)
 	{
-		$data['state'] = 'COMPLETED';
+		$data['state'] = 'VALID';
 		return parent::save($data);
 	}
 	

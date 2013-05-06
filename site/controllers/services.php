@@ -4,6 +4,7 @@ defined('_JEXEC') or die('Restricted access');
 
 // import Joomla controller library
 jimport('joomla.application.component.controller');
+require_once(JPATH_LIBRARIES .'/nusoap/lib/nusoap.php');
 
 /**
  * Systems Controller
@@ -19,29 +20,22 @@ class RopoControllerServices extends JControllerLegacy
 
 	public function test()
 	{
-		//$params = array ( 'param1' => 'This is param1', 'param2' => 'This is param2');
-		$params = array ( 'This is param1', 'This is param2');
-
-		$request_method = 'services.getsystems';
-		$request_params = xmlrpc_encode( $params );
-
-		$postdata = http_build_query(array('params' => $request_params));
-		$opts = array('http' =>
-			array(
-		        'method'  => 'POST',
-		        'header'  => 'Content-type: application/x-www-form-urlencoded',
-		        'content' => $postdata
-				)
-		);
-
-		$context  = stream_context_create($opts);
+		$wsdlurl = JURI::base().'index.php?'.urlencode('option=com_ropo&task=services.soap&format=xmlrpc&wsdl');
+		// Create the client instance
+		$client = new SoapClient($wsdlurl, array()); 
 		
-		$response = file_get_contents(JURI::base()."index.php?option=com_ropo&task=".$request_method."&format=xmlrpc", false, $context);
-		$params = xmlrpc_decode($response);
-
-		echo "Method name: $request_method";
-		echo "<P>Params:";
-		print_r ($params);
+		try {
+			$result = $client->__call('RopoControllerServices.getSystems', array());
+			echo "<pre>";
+			print_r($result);
+			echo "<pre>";
+		} catch (SoapFault $fault) {
+			echo "<pre style=\"color: red;\">";
+			print_r($fault);
+			echo "<pre>";
+		}
+		
+		exit();
 	}
 	
 	

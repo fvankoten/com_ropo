@@ -11,7 +11,7 @@ CREATE TABLE `#__ropo_systems` (
 	`created_time` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
 	`modified_user_id` INT(11) UNSIGNED NOT NULL,
 	`modified_time` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
-	`state` ENUM('INITIALIZED','COMPLETED','PENDING','APPROVED','NOTAPPROVED','DELETED') DEFAULT 'INITIALIZED',
+	`state` ENUM('INVALID','VALID','eRECEIVED','pRECEIVED','REC_NOTIFIED','ASSIGNED','DECLINED','APPROVED','EXTENSION','DELETED') DEFAULT 'INVALID',
 	`identificationdata_type_of_controller` ENUM ('NATURAL','LEGAL') DEFAULT 'NATURAL',
 	`identificationdata_controller_name` VARCHAR(255) NOT NULL,
 	`identificationdata_controller_address1` VARCHAR(100) NOT NULL,

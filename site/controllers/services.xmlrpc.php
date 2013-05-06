@@ -4,6 +4,7 @@ defined('_JEXEC') or die('Restricted access');
 
 // import Joomla controller library
 jimport('joomla.application.component.controller');
+jimport('joomla.log.log');
 require_once(JPATH_LIBRARIES .'/nusoap/lib/nusoap.php');
 
 /**
@@ -12,29 +13,39 @@ require_once(JPATH_LIBRARIES .'/nusoap/lib/nusoap.php');
 class RopoControllerServices extends JControllerLegacy
 {
 
+	public function __construct($config = array())
+	{
+		parent::__construct($config);
+		JLog::addLogger(array('text_file' => 'com_ropo.error.php'),
+				//Sets all JLog messages to be set to the file
+				JLog::ALL,
+				//Chooses a category name
+				'com_ropo'
+		);
+	}
+	
 	public function getSystems() {
-		$items = array();
-
-		// Create a new query object.
-		$db = JFactory::getDBO();
-		$query = $db->getQuery(true);
-		// Select some fields
-		$query->select('id,regno,version,title,created_time,modified_time,state');
-		// From the systems
-		$query->from('#__ropo_systems');
-
-		$db->setQuery($query);
-		$items = $db->loadAssocList();
+		JLog::add('Entering getSystems', JLog::INFO);
+		
+		$model = $this->getModel('systems');
+		$items = $model->getSystems('VALID');
 		
 		return $items;
 	}
 
 	public function soap() {
+		JLog::add('Entering soap', JLog::INFO);
+		
+		$method = 'getSystems';
+		$class = get_class($this);
+		$fObj = new ReflectionMethod($class, $method);
+		JLog::add($fObj->getName(), JLog::INFO);
+		
 		$namespace = JURI::base() . 'roposervices';
-		$endpoint = JURI::base() . 'index.php?option=com_ropo&task=services.soap&format=xmlrpc';
+		$endpoint = JURI::base() . 'index.php?'.urlencode('option=com_ropo&task=services.soap&format=xmlrpc');
 
 		$server = new soap_server();
-		$server->configureWSDL('ropo', $namespace, urlencode($endpoint));
+		$server->configureWSDL('ropo', 'urn:'.$namespace, $endpoint /*urlencode($endpoint)*/);
 		
 		$server->wsdl->addComplexType(
 				'system', // name
@@ -50,7 +61,12 @@ class RopoControllerServices extends JControllerLegacy
 						'title' => array('name' => 'title', 'type' => 'xsd:string'),
 						'created_time' => array('name' => 'created_time', 'type' => 'xsd:string'),
 						'modified_time' => array('name' => 'modified_time', 'type' => 'xsd:string'),
-						'state' => array('name' => 'state', 'type' => 'xsd:string')
+						'state' => array('name' => 'state', 'type' => 'xsd:string'),
+						'asset_id' => array('name' => 'asset_id', 'type' => 'xsd:int'),
+						'identificationdata_controller_name' => array('name' => 'identificationdata_controller_name', 'type' => 'xsd:string'),
+						'identificationdata_controller_address1' => array('name' => 'identificationdata_controller_address1', 'type' => 'xsd:string'),
+						'identificationdata_controller_postalcode' => array('name' => 'identificationdata_controller_postalcode', 'type' => 'xsd:string'),
+						'identificationdata_controller_city' => array('name' => 'identificationdata_controller_city', 'type' => 'xsd:string')
 				)
 		);
 		
@@ -74,19 +90,22 @@ class RopoControllerServices extends JControllerLegacy
 		);
 
 		$server->register(
-				'getSystems', // method name
+				$class.'.'.$method, // method name
 				array(), // input parameters
 				array('return' => 'tns:systemList'), // output parameters
-				$namespace, // namespace
-				$namespace . '#getsystems', // soapaction
+				'urn:'.$namespace, // namespace
+				'urn:'.$namespace . '#'.$class.'.'.$method, // soapaction
 				'rpc', // style
 				'encoded', // use
 				'Get all Processing Systems' // documentation
 		);
 
 		// Use the request to (try to) invoke the service
-		$HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : '';
+		global $HTTP_RAW_POST_DATA;
+		$HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : file_get_contents("php://input");
 		$server->service($HTTP_RAW_POST_DATA);
+				
+		jexit();
 
 		exit();
 	}

@@ -113,17 +113,21 @@ class RopoModelSystem extends JModelAdmin
 	protected function prepareTable(&$table)
 	{
 		switch($table->state) {
-			case 'INITIALIZED':
-			case 'COMPLETED':
+			case 'INVALID':
+			case 'VALID':
 				// nothing to do
 				break;
-			case 'PENDING':
+			case 'eRECEIVED':
+			case 'pRECEIVED':
+			case 'REC_NOTIFIED':
+			case 'ASSIGNED':
+			case 'DECLINED':
 			case 'APPROVED':
-			case 'NOTAPPROVED':
+			case 'EXTENSION':
 			case 'DELETED':
 				$table->id = 0;
 				$table->version++;
-				$table->state = 'INITIALIZED';
+				$table->state = 'INVALID';
 				break;
 			default:
 		}

@@ -81,7 +81,7 @@ class RopoControllerSystem extends JControllerForm
 		$success = $this->save($key, $urlVar);
 		if ($success) {
 			$state = $app->getUserState($this->option . '.edit.' . $this->context . '.id');
-			$recordId = (int)$state[count($state)];
+			$recordId = (int)$state[count($state) - 1];
 				
 			$currentView = (int)array_search($view, $this->systemviews);
 			$currentView += $add;
