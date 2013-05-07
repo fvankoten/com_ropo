@@ -5,10 +5,10 @@
 		<field name="regno" type="hidden" label="COM_ROPO_SYSTEM_REGNO_LABEL" description="COM_ROPO_SYSTEM_REGNO_DESC" />
 		<field name="version" type="hidden" label="COM_ROPO_SYSTEM_VERSION_LABEL" description="COM_ROPO_SYSTEM_VERSION_DESC" default="1" />
 		
-		<field name="title" type="text" size="80" required="true"
+		<field name="title" type="text" size="80" required="true" class="width100"
 			label="COM_ROPO_SYSTEM_TITLE_LABEL" description="COM_ROPO_SYSTEM_TITLE_DESC" />
 		
-		<field name="purpose" type="textarea" rows="2" cols="80"
+		<field name="purpose" type="textarea" rows="2" cols="80" class="width100"
 			label="COM_ROPO_SYSTEM_PURPOSE_LABEL" description="COM_ROPO_SYSTEM_PURPOSE_DESC" />
 		
 		<field name="created_time" type="calendar" label="COM_ROPO_SYSTEM_CREATED_TIME_LABEL" description="COM_ROPO_SYSTEM_CREATED_TIME_DESC"

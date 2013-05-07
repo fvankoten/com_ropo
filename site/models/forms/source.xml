@@ -3,10 +3,10 @@
 	<fieldset name="COM_ROPO_ORIGIN_OF_PERSONAL_DATA_FIELDSET">
 		<field name="id" type="hidden" />
 		
-		<field name="sources_source_of_information" type="textarea" rows="3" cols="80" required="true"
+		<field name="sources_source_of_information" type="textarea" rows="3" cols="80" required="true" class="width100"
 			label="COM_ROPO_SOURCES_SOURCE_OF_INFORMATION_LABEL" description="COM_ROPO_SOURCES_SOURCE_OF_INFORMATION_DESC" />
 		
-		<field name="sources_source_medium" type="textarea" rows="3" cols="80" required="true"
+		<field name="sources_source_medium" type="textarea" rows="3" cols="80" required="true" class="width100"
 			label="COM_ROPO_SOURCES_SOURCE_MEDIUM_LABEL" description="COM_ROPO_SOURCES_SOURCE_MEDIUM_DESC" />
 	</fieldset>
 	

@@ -11,7 +11,7 @@ jimport('joomla.application.component.controller');
 class RopoControllerServices extends JControllerLegacy
 {
 	
-	public function getsystems() {
+	public function getSystems() {
 		$model = $this->getModel('systems');
 		$items = $model->getSystems('VALID');
 				
@@ -19,5 +19,18 @@ class RopoControllerServices extends JControllerLegacy
 		$document->setName('systems');
 		
 		echo json_encode($items);
+	}
+	
+	public function setState() {
+		$id = JRequest::getInt('id');
+		$state = JRequest::getString('state');
+
+		$model = $this->getModel('system');
+		$result = $model->setSystemState($id, $state);
+		
+		$document = JFactory::getDocument();
+		$document->setName('system');
+	
+		echo json_encode(array('id' => $id, 'state' => $state, 'result' => $result));
 	}
 }

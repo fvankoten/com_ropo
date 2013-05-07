@@ -27,11 +27,13 @@ JHtml::_('behavior.tooltip');
 	<?php foreach($this->form->getFieldsets() as $fieldset): ?>
 	<fieldset class="adminform">
 		<legend><?php echo JText::_($fieldset->name); ?></legend>
-		<ul class="adminformlist">
-		<?php foreach($this->form->getFieldset($fieldset->name) as $field): ?>
-			<li><?php echo $field->label;echo $field->input;?></li>
-		<?php endforeach; ?>
-		</ul>
+		<table class="systemdata">
+			<?php foreach($this->form->getFieldset($fieldset->name) as $field): ?>
+			<tr>
+				<th><?php echo $field->label; ?></th>
+				<td><?php echo $field->input; ?></td>
+			<?php endforeach; ?>	
+		</table>
 	</fieldset>
 	<?php endforeach; ?>
 

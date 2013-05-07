@@ -3,19 +3,19 @@
 	<fieldset name="COM_ROPO_PURPOSE_FIELDSET">
 		<field name="id" type="hidden" />
 		
-		<field name="purposes_purpose" type="textarea" rows="3" cols="80" required="true"
+		<field name="purposes_purpose" type="textarea" rows="3" cols="80" required="true" class="width100"
 			label="COM_ROPO_PURPOSES_PURPOSE_LABEL" description="COM_ROPO_PURPOSES_PURPOSE_DESC" />
 		
 		<field name="purposes_established_by_law" type="checkbox" value="1"
 			label="COM_ROPO_PURPOSES_ESTABLISHED_BY_LAW_LABEL" description="COM_ROPO_PURPOSES_ESTABLISHED_BY_LAW_DESC" />
 			
-		<field name="purposes_established_by_law_description" type="textarea" rows="3" cols="80" 
+		<field name="purposes_established_by_law_description" type="textarea" rows="3" cols="80" class="width100"
 			label="COM_ROPO_PURPOSES_ESTABLISHED_BY_LAW_DESCRIPTION_LABEL" description="COM_ROPO_PURPOSES_ESTABLISHED_BY_LAW_DESCRIPTION_DESC" />
 			
 		<field name="purposes_established_by_consent" type="checkbox" value="1"
 			label="COM_ROPO_PURPOSES_ESTABLISHED_BY_CONSENT_LABEL" description="COM_ROPO_PURPOSES_ESTABLISHED_BY_CONSENT_DESC" />
 		
-		<field name="purposes_established_by_consent_description" type="textarea" rows="3" cols="80" 
+		<field name="purposes_established_by_consent_description" type="textarea" rows="3" cols="80" class="width100"
 			label="COM_ROPO_PURPOSES_ESTABLISHED_BY_CONSENT_DESCRIPTION_LABEL" description="COM_ROPO_PURPOSES_ESTABLISHED_BY_CONSENT_DESCRIPTION_DESC" />
 	</fieldset>
 </form>

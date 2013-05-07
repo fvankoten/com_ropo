@@ -32,14 +32,16 @@ class RopoControllerServices extends JControllerLegacy
 		
 		return $items;
 	}
+	
+	public function setState($id, $state) {
+		JLog::add('Entering setState for ID='.$id, JLog::INFO);
+		
+		$model = $this->getModel('system');
+		return $model->setSystemState($id, $state);
+	}
 
 	public function soap() {
 		JLog::add('Entering soap', JLog::INFO);
-		
-		$method = 'getSystems';
-		$class = get_class($this);
-		$fObj = new ReflectionMethod($class, $method);
-		JLog::add($fObj->getName(), JLog::INFO);
 		
 		$namespace = JURI::base() . 'roposervices';
 		$endpoint = JURI::base() . 'index.php?'.urlencode('option=com_ropo&task=services.soap&format=xmlrpc');
@@ -89,6 +91,9 @@ class RopoControllerServices extends JControllerLegacy
 				'tns:system'
 		);
 
+		$class = get_class($this);
+
+		$method = 'getSystems';
 		$server->register(
 				$class.'.'.$method, // method name
 				array(), // input parameters
@@ -98,6 +103,18 @@ class RopoControllerServices extends JControllerLegacy
 				'rpc', // style
 				'encoded', // use
 				'Get all Processing Systems' // documentation
+		);
+		
+		$method = 'setState';
+		$server->register(
+				$class.'.'.$method, // method name
+				array('id' => 'xsd:int', 'state' => 'xsd:string'), // input parameters
+				array('return' => 'xsd:boolean'), // output parameters
+				'urn:'.$namespace, // namespace
+				'urn:'.$namespace . '#'.$class.'.'.$method, // soapaction
+				'rpc', // style
+				'encoded', // use
+				'Sets state of system with given id' // documentation
 		);
 
 		// Use the request to (try to) invoke the service

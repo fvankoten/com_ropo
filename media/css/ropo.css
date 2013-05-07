@@ -55,4 +55,26 @@ table#publicsystem col.col1 {
 #publicsystem td {
 	padding: 2px 2em;
 	text-align: left;
-} 
+}
+
+table.systemdata {
+	table-layout: auto;
+	width: 100%;
+}
+
+table.systemdata tr, table.systemdata th {
+	width: 200px;
+}
+
+table.systemdata tr, table.systemdata th, table.systemdata td {
+	border: none;
+	padding: 0 5px;
+}
+
+table.systemdata td input.width100, table.systemdata td textarea.width100 {
+	width: 100%;
+}
+
+table.systemdata td input, table.systemdata th label {
+	font-size: 1em !important;
+}

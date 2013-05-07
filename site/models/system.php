@@ -110,8 +110,9 @@ class RopoModelSystem extends JModelAdmin
 		return parent::validate($form, $data, $group);
 	}
 	
-	protected function prepareTable(&$table)
+	protected function _prepareTable(&$table)
 	{
+		/*
 		switch($table->state) {
 			case 'INVALID':
 			case 'VALID':
@@ -130,6 +131,30 @@ class RopoModelSystem extends JModelAdmin
 				$table->state = 'INVALID';
 				break;
 			default:
+				break;
 		}
+		*/
+	}
+	
+	public function setSystemState($id, $state) {
+		$state = strtoupper($state);
+		switch ($state) {
+			case 'INVALID':
+			case 'VALID':
+			case 'eRECEIVED':
+			case 'pRECEIVED':
+			case 'REC_NOTIFIED':
+			case 'ASSIGNED':
+			case 'DECLINED':
+			case 'APPROVED':
+			case 'EXTENSION':
+			case 'DELETED':
+				break;
+			default:
+				return false;
+		}
+		
+		$data = array('id' => $id, 'state' => $state);		
+		return $this->save($data);
 	}
 }

@@ -37,7 +37,7 @@
 			label="COM_ROPO_PERSONALDATA_AUDIO_LABEL" description="COM_ROPO_PERSONALDATA_AUDIO_DESC" />
 		<field name="personaldata_photo" type="checkbox" value="1"  
 			label="COM_ROPO_PERSONALDATA_PHOTO_LABEL" description="COM_ROPO_PERSONALDATA_PHOTO_DESC" />
-		<field name="personaldata_other" type="textarea" rows="2" cols="80"  
+		<field name="personaldata_other" type="textarea" rows="2" cols="80"  class="width100"
 			label="COM_ROPO_PERSONALDATA_OTHER_LABEL" description="COM_ROPO_PERSONALDATA_OTHER_DESC" /> 
 	</fieldset>
 </form>

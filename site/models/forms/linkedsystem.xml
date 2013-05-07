@@ -4,11 +4,11 @@
 		<field name="id" type="hidden" />
 		<field name="linkedsystem_enabled" type="checkbox" value="1" 
 			label="COM_ROPO_LINKEDSYSTEM_ENABLED_LABEL" description="COM_ROPO_LINKEDSYSTEM_ENABLED_DESC"/>
-		<field name="linkedsystem_description" type="textarea" rows="4" cols="80" 
+		<field name="linkedsystem_description" type="textarea" rows="4" cols="80" class="width100"
 			label="COM_ROPO_LINKEDSYSTEM_DESCRIPTION_LABEL" description="COM_ROPO_LINKEDSYSTEM_DESCRIPTION_DESC" />
-		<field name="linkedsystem_notification" type="textarea" rows="3" cols="80" 
+		<field name="linkedsystem_notification" type="textarea" rows="3" cols="80" class="width100"
 			label="COM_ROPO_LINKEDSYSTEM_NOTIFICATION_LABEL" description="COM_ROPO_LINKEDSYSTEM_NOTIFICATION_DESC" />
-		<field name="linkedsystem_authorization" type="textarea" rows="2" cols="80" 
+		<field name="linkedsystem_authorization" type="textarea" rows="2" cols="80" class="width100"
 			label="COM_ROPO_LINKEDSYSTEM_AUTHORIZATION_LABEL" description="COM_ROPO_LINKEDSYSTEM_AUTHORIZATION_DESC" />
 	</fieldset>
 </form>

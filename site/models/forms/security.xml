@@ -2,28 +2,28 @@
 <form>
 	<fieldset name="COM_ROPO_SECURITY_CONFIDENTIALITY_FIELDSET">
 		<field name="id" type="hidden" />
-		<field name="security_confidentiality" type="textarea" rows="6" cols="80" 
+		<field name="security_confidentiality" type="textarea" rows="6" cols="80" class="width100"
 			label="COM_ROPO_SECURITY_CONFIDENTIALITY_LABEL" description="COM_ROPO_SECURITY_CONFIDENTIALITY_DESC" />
 	</fieldset>
 	
 	<fieldset name="COM_ROPO_SECURITY_INTEGRITY_FIELDSET">
-		<field name="security_integrity" type="textarea" rows="6" cols="80"  
+		<field name="security_integrity" type="textarea" rows="6" cols="80"  class="width100"
 			label="COM_ROPO_SECURITY_INTEGRITY_LABEL" description="COM_ROPO_SECURITY_INTEGRITY_DESC" />
 	</fieldset>
 	
 	<fieldset name="COM_ROPO_SECURITY_AVAILABILITY_FIELDSET">
-		<field name="security_availability" type="textarea" rows="7" cols="80"
+		<field name="security_availability" type="textarea" rows="7" cols="80" class="width100" 
 			label="COM_ROPO_SECURITY_AVAILABILITY_LABEL" description="COM_ROPO_SECURITY_AVAILABILITY_DESC" />
 	</fieldset>
 	
 	<fieldset name="COM_ROPO_SECURITY_TRANSPARENCY_FIELDSET">
 		<field name="security_transparency_by_document" type="checkbox" value="1"  
 			label="COM_ROPO_SECURITY_TRANSPARENCY_BY_DOCUMENT_LABEL" description="COM_ROPO_SECURITY_TRANSPARENCY_BY_DOCUMENT_DESC" />
-		<field name="security_document_details" type="textarea" rows="2" cols="80"
+		<field name="security_document_details" type="textarea" rows="2" cols="80" class="width100"
 			label="COM_ROPO_SECURITY_DOCUMENT_DETAILS_LABEL" description="COM_ROPO_SECURITY_DOCUMENT_DETAILS_DESC" />
 		<field name="security_transparency_by_plan" type="checkbox" value="1"  
 			label="COM_ROPO_SECURITY_TRANSPARENCY_BY_PLAN_LABEL" description="COM_ROPO_SECURITY_TRANSPARENCY_BY_PLAN_DESC" />
-		<field name="security_plan_details" type="textarea" rows="2" cols="80"
+		<field name="security_plan_details" type="textarea" rows="2" cols="80" class="width100"
 			label="COM_ROPO_SECURITY_PLAN_DETAILS_LABEL" description="COM_ROPO_SECURITY_PLAN_DETAILS_DESC" />
 	</fieldset>
 </form>
