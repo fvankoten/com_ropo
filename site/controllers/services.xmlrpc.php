@@ -48,6 +48,7 @@ class RopoControllerServices extends JControllerLegacy
 
 		$server = new soap_server();
 		$server->configureWSDL('ropo', 'urn:'.$namespace, $endpoint /*urlencode($endpoint)*/);
+		$server->soap_defencoding = 'UTF-8';
 		
 		$server->wsdl->addComplexType(
 				'system', // name
