@@ -2,11 +2,11 @@
 <form>
 	<fieldset name="COM_ROPO_APPLICANT_FIELDSET">
 		<field name="id" type="hidden" />
-		<field name="applicant_firstname" type="text" size="80" class="width100"
+		<field name="applicant_firstname" type="text" size="80" required="true" class="width100"
 			label="COM_ROPO_APPLICANT_FIRSTNAME_LABEL" description="COM_ROPO_APPLICANT_FIRSTNAME_DESC" />
-		<field name="applicant_lastname" type="text" size="80" class="width100"
+		<field name="applicant_lastname" type="text" size="80" required="true" class="width100"
 			label="COM_ROPO_APPLICANT_LASTNAME_LABEL" description="COM_ROPO_APPLICANT_LASTNAME_DESC" />
-		<field name="applicant_application_date" type="calendar" format="%Y-%m-%d %H:%M:%S" 
+		<field name="applicant_application_date" type="calendar" required="true" format="%Y-%m-%d" 
 			label="COM_ROPO_APPLICANT_APPLICATION_DATE_LABEL" description="COM_ROPO_APPLICANT_APPLICATION_DATE_DESC" />
 	</fieldset>
 </form>

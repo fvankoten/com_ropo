@@ -112,7 +112,6 @@ class RopoModelSystem extends JModelAdmin
 	
 	protected function _prepareTable(&$table)
 	{
-		/*
 		switch($table->state) {
 			case 'INVALID':
 			case 'VALID':
@@ -133,7 +132,6 @@ class RopoModelSystem extends JModelAdmin
 			default:
 				break;
 		}
-		*/
 	}
 	
 	public function setSystemState($id, $state) {

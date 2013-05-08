@@ -2,7 +2,7 @@
 <form>
 	<fieldset name="COM_ROPO_DATA_DATE_OF_ESTABLISHMENT_FIELDSET">
 		<field name="id" type="hidden" />
-		<field name="data_established_time" type="calendar" format="%Y-%m-%d %H:%M:%S" 
+		<field name="data_established_time" type="calendar" format="%Y-%m-%d" 
 			label="COM_ROPO_DATA_ESTABLISHED_TIME_LABEL" description="COM_ROPO_DATA_ESTABLISHED_TIME_DESC" />
 	</fieldset>
 	

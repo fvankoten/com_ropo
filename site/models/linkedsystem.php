@@ -17,4 +17,25 @@ class RopoModelLinkedsystem extends RopoModelSystem
 		$this->_identifier = 'linkedsystem';
 	}
 	
+	public function validate($form, $data, $group = null)
+	{
+		$result = parent::validate($form, $data, $group);
+	
+		$valid = true;
+		$cbChecked = $data['linkedsystem_enabled'];
+		$detail1 = $data['linkedsystem_description'];
+		$detail2 = $data['linkedsystem_notification'];
+		$detail3 = $data['linkedsystem_authorization'];
+	
+	
+		$valid &= (($cbChecked == 0)
+				|| (($detail1 != '') && ($detail2 != '') && ($detail3 != '')));
+	
+		if (!$valid) {
+			$this->setError(JText::_('COM_ROPO_LINKED_FILING_SYSTEMS_ERROR'));
+			$result = false;
+		}
+	
+		return $result;
+	}
 }

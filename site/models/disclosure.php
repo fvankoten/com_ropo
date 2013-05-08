@@ -16,5 +16,23 @@ class RopoModelDisclosure extends RopoModelSystem
 		parent::__construct($config);
 		$this->_identifier = 'disclosure';
 	}
+
+	public function validate($form, $data, $group = null)
+	{
+		$result = parent::validate($form, $data, $group);
 	
+		$valid = true;
+		$cbDisclosure = $data['disclosure_enabled'];
+		$recipient = $data['disclosure_recipient'];
+		$purpose = $data['disclosure_purpose'];
+	
+		$valid &= (($cbDisclosure == 0) || (($recipient != '') && ($purpose != '')));
+	
+		if (!$valid) {
+			$this->setError(JText::_('COM_ROPO_DISCLOSURE_ERROR'));
+			$result = false;
+		}
+	
+		return $result;
+	}
 }

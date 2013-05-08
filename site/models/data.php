@@ -17,4 +17,32 @@ class RopoModelData extends RopoModelSystem
 		$this->_identifier = 'data';
 	}
 	
+	public function validate($form, $data, $group = null)
+	{
+		$result = parent::validate($form, $data, $group);
+	
+		$valid = true;
+		$basis = $data['data_storage_legal_basis'];
+		$purpose = $data['data_storage_purpose'];
+	
+		$valid &= (($basis != '') || ($purpose != ''));
+	
+		if (!$valid) {
+			$this->setError(JText::_('COM_ROPO_DATA_STORAGE_ERROR'));
+			$result = false;
+		}
+		
+		$valid = true;
+		$basis = $data['data_usage_legal_basis'];
+		$purpose = $data['data_usage_purpose'];
+		
+		$valid &= (($basis != '') || ($purpose != ''));
+		
+		if (!$valid) {
+			$this->setError(JText::_('COM_ROPO_DATA_USAGE_ERROR'));
+			$result = false;
+		}
+	
+		return $result;
+	}
 }

@@ -123,7 +123,5 @@ class RopoControllerServices extends JControllerLegacy
 		$server->service($HTTP_RAW_POST_DATA);
 				
 		jexit();
-
-		exit();
 	}
 }
