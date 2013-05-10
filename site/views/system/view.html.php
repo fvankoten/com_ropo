@@ -12,6 +12,7 @@ class RopoViewSystem extends RopoViewBase
 {
 	
 	protected $canDo;
+	public $isNew;
 	public $currentChapter = 1;
 	public $help = "COM_ROPO_SYSTEM_HELP";
 	
@@ -35,6 +36,7 @@ class RopoViewSystem extends RopoViewBase
 		$this->form = $form;
 		$this->item = $item;
 		$this->canDo = RopoHelper::getActions($this->item->id);
+		$this->isNew = ($item->id == 0);
 		$this->_title = ($item->id > 0 ? JText::_('COM_ROPO_SYSTEM_EDIT') : JText::_('COM_ROPO_SYSTEM_NEW')); 
 
 		// Display the template

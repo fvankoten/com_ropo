@@ -18,6 +18,7 @@ class RopoViewSystems extends JViewLegacy
 	{
 		// get the Data
 		$items = $this->get('Items');
+		$state = $this->get('State');
 		$pagination = $this->get('Pagination');
 
 		// Check for errors.
@@ -28,6 +29,8 @@ class RopoViewSystems extends JViewLegacy
 		}
 		// Assign the Data
 		$this->items = $items;
+		$this->sortDirection = $state->get('filter_order_Dir');
+		$this->sortColumn = $state->get('filter_order');
 		$this->pagination = $pagination;
 		$this->canDo = RopoHelper::getActions();
 

@@ -2,8 +2,10 @@
 <form>
 	<fieldset name="COM_ROPO_SYSTEM_FIELDSET">
 		<field name="id" type="hidden" label="COM_ROPO_REGNO_LABEL" description="COM_ROPO_REGNO_DESC" />
-		<field name="regno" type="hidden" label="COM_ROPO_SYSTEM_REGNO_LABEL" description="COM_ROPO_SYSTEM_REGNO_DESC" />
-		<field name="version" type="hidden" label="COM_ROPO_SYSTEM_VERSION_LABEL" description="COM_ROPO_SYSTEM_VERSION_DESC" default="1" />
+		<field name="regno" type="text" label="COM_ROPO_SYSTEM_REGNO_LABEL" description="COM_ROPO_SYSTEM_REGNO_DESC" 
+			readonly="true" class="readonly" />
+		<field name="version" type="text" label="COM_ROPO_SYSTEM_VERSION_LABEL" description="COM_ROPO_SYSTEM_VERSION_DESC" default="1" 
+			readonly="true" class="readonly" />
 		
 		<field name="title" type="text" size="80" required="true" class="width100"
 			label="COM_ROPO_SYSTEM_TITLE_LABEL" description="COM_ROPO_SYSTEM_TITLE_DESC" />

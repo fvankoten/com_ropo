@@ -29,9 +29,26 @@ JHtml::_('behavior.tooltip');
 		<legend><?php echo JText::_($fieldset->name); ?></legend>
 		<table class="systemdata">
 			<?php foreach($this->form->getFieldset($fieldset->name) as $field): ?>
+			<?php if ($field->fieldname == 'version') : ?>
+			<?php elseif ($this->isNew && $field->fieldname == 'regno') : ?>
+			<?php elseif ($this->isNew && $field->fieldname == 'created_time') : ?>
+			<?php elseif ($this->isNew && $field->fieldname == 'created_user_id') : ?>
+			<?php elseif ($this->isNew && $field->fieldname == 'modified_time') : ?>
+			<?php elseif ($this->isNew && $field->fieldname == 'modified_user_id') : ?>
+			<?php else : ?>
 			<tr>
 				<th><?php echo $field->label; ?></th>
-				<td><?php echo $field->input; ?></td>
+				<td>
+					<?php
+						if ($field->fieldname == 'regno') {
+							echo JText::sprintf('%d-%03d', $field->value, $this->form->getField('version')->value);
+						} else { 
+							echo $field->input;
+						} 
+					?>
+				</td>
+			</tr>
+			<?php endif; ?>
 			<?php endforeach; ?>	
 		</table>
 	</fieldset>

@@ -150,7 +150,8 @@ class plgSearchRopo extends JPlugin
 		{
 			$query->select('s.title AS title, s.created_time AS created, s.purpose AS text, s.id AS id');
 			$query->from('#__ropo_systems AS s');
-			$query->where($where);
+			$query->join('LEFT OUTER', '#__ropo_systems s2 ON s.regno = s2.regno AND s.version < s2.version');
+			$query->where($where . ' AND (s2.version IS NULL)');
 			$query->order($order);
 			
 			$db->setQuery($query, 0, $limit);

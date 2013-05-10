@@ -32,6 +32,7 @@ JHtml::_('behavior.tooltip');
 			<tr>
 				<th><?php echo $field->label; ?></th>
 				<td><?php echo $field->input; ?></td>
+			</tr>
 			<?php endforeach; ?>	
 		</table>
 	</fieldset>
