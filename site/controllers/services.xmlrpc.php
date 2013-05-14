@@ -9,7 +9,7 @@ require_once(JPATH_LIBRARIES .'/nusoap/lib/nusoap.php');
 
 /**
  * Services Controller
- */
+*/
 class RopoControllerServices extends JControllerLegacy
 {
 
@@ -17,39 +17,51 @@ class RopoControllerServices extends JControllerLegacy
 	{
 		parent::__construct($config);
 		JLog::addLogger(array('text_file' => 'com_ropo.error.php'),
-				//Sets all JLog messages to be set to the file
-				JLog::ALL,
-				//Chooses a category name
-				'com_ropo'
+			//Sets all JLog messages to be set to the file
+			JLog::ALL,
+			//Chooses a category name
+			'com_ropo'
 		);
 	}
-	
+
+
 	public function getSystems() {
-		JLog::add('Entering getSystems', JLog::INFO);
-		
 		$model = $this->getModel('systems');
 		$items = $model->getSystems('VALID');
-		
+
 		return $items;
 	}
-	
+
 	public function setState($id, $state) {
-		JLog::add('Entering setState for ID='.$id, JLog::INFO);
-		
 		$model = $this->getModel('system');
 		return $model->setSystemState($id, $state);
 	}
 
 	public function soap() {
-		JLog::add('Entering soap', JLog::INFO);
-		
 		$namespace = JURI::base() . 'roposervices';
 		$endpoint = JURI::base() . 'index.php?'.urlencode('option=com_ropo&task=services.soap&format=xmlrpc');
 
 		$server = new soap_server();
 		$server->configureWSDL('ropo', 'urn:'.$namespace, $endpoint /*urlencode($endpoint)*/);
 		$server->soap_defencoding = 'UTF-8';
+
+		/*
+		$server->parse_http_headers();
 		
+		$headers = $server->headers;
+		foreach ($headers as $k => $v) {
+			JLog::add($k.' = '.$v, JLog::INFO);
+		}
+		
+		if ($server->SOAPAction) {
+			if(!isset($server->headers['authorization']) || !$this->_authorize($server->headers['authorization'])) {
+				$server->fault('SOAP-ENV:Client', 'Access denied');
+				$server->send_response();
+				jexit();
+			}
+		}
+		*/
+
 		$server->wsdl->addComplexType(
 				'system', // name
 				'complextType', // typeClass (complexType|simpleType|attribute)
@@ -72,7 +84,7 @@ class RopoControllerServices extends JControllerLegacy
 						'identificationdata_controller_city' => array('name' => 'identificationdata_controller_city', 'type' => 'xsd:string')
 				)
 		);
-		
+
 		$server->wsdl->addComplexType(
 				'systemList', // name
 				'complextType', // typeClass (complexType|simpleType|attribute)
@@ -105,7 +117,7 @@ class RopoControllerServices extends JControllerLegacy
 				'encoded', // use
 				'Get all Processing Systems' // documentation
 		);
-		
+
 		$method = 'setState';
 		$server->register(
 				$class.'.'.$method, // method name
@@ -122,7 +134,33 @@ class RopoControllerServices extends JControllerLegacy
 		global $HTTP_RAW_POST_DATA;
 		$HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : file_get_contents("php://input");
 		$server->service($HTTP_RAW_POST_DATA);
-				
+
 		jexit();
+	}
+
+	private function _authorize($authHeader){
+		$a = explode(' ', $authHeader);
+		$b = explode(':', base64_decode($a[1]));
+		if (count($b) != 2) {
+			//no username and password present
+			return false;
+		}
+		$type = $a[0];
+		$username = $b[0];
+		$pwd = $b[1];
+		
+		JLog::add('Username='.$username, JLog::INFO);
+
+		//check for a valid Joomla user
+		jimport('joomla.user.authentication');
+
+		$authenticate = JAuthentication::getInstance();
+		$credentials = array('username' => $username, 'password' => $pwd);
+		$response = $authenticate->authenticate($credentials);
+		if ($response->status === JAuthentication::STATUS_SUCCESS) {
+			$user =& JUser::getInstance(JUserHelper::getUserId($username));
+			return $user->authorise('com_ropo.webservice.execute');
+		}
+		return false;
 	}
 }

@@ -36,8 +36,10 @@ class RopoViewApplicant extends RopoViewBase
         $bar = new JToolBar('toolbar');
         //and make whatever calls you require
         $bar->appendButton('Frontend', 'cancel', 'COM_ROPO_SYSTEM_TOOLBAR_CANCEL', 'system.cancel', false);
-        $bar->appendButton('Frontend', 'back', 'COM_ROPO_SYSTEM_TOOLBAR_PREV', 'system.prev', false);
-        $bar->appendButton('Frontend', 'publish', 'COM_ROPO_SYSTEM_TOOLBAR_COMMIT', 'system.commit', false);
+        if ($this->canDo->get('core.edit.own') || $this->canDo->get('core.edit')) {
+        	$bar->appendButton('Frontend', 'back', 'COM_ROPO_SYSTEM_TOOLBAR_PREV', 'system.prev', false);
+            $bar->appendButton('Frontend', 'publish', 'COM_ROPO_SYSTEM_TOOLBAR_COMMIT', 'system.commit', false);
+        }
         
         //generate the html and return
         return $bar->render();

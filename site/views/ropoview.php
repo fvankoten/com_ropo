@@ -63,7 +63,7 @@ class RopoViewBase extends JViewLegacy
         $bar = new JToolBar('toolbar');
         
         $bar->appendButton('Frontend', 'cancel', 'COM_ROPO_SYSTEM_TOOLBAR_CANCEL', 'system.cancel', false);
-        if ($this->canDo->get('core.edit')) {
+        if ($this->canDo->get('core.edit.own') || $this->canDo->get('core.edit')) {
 	        $bar->appendButton('Frontend', 'back', 'COM_ROPO_SYSTEM_TOOLBAR_PREV', 'system.prev', false);
 	        $bar->appendButton('Frontend', 'forward', 'COM_ROPO_SYSTEM_TOOLBAR_NEXT', 'system.next', false);
         }
