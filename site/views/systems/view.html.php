@@ -61,6 +61,11 @@ class RopoViewSystems extends JViewLegacy
         if ($this->canDo->get('core.create')) {
         	$bar->appendButton('Frontend', 'new', 'COM_ROPO_SYSTEMS_TOOLBAR_NEW', 'system.add', false);
         }
+        /*
+        if ($this->canDo->get('core.delete')) {
+        	$bar->appendButton('Frontend', 'delete', 'COM_ROPO_SYSTEMS_TOOLBAR_DELETE', 'systems.delete', true);
+        }
+        */
         if ($this->canDo->get('core.edit.own')) {
         	$bar->appendButton('Frontend', 'edit', 'COM_ROPO_SYSTEMS_TOOLBAR_EDIT', 'system.edit', true);
         }

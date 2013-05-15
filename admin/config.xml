@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
+	<fieldset name="webservice" label="COM_ROPO_CONFIG_WEBSERVICE_LABEL" description="COM_ROPO_CONFIG_WEBSERVICE_DESC">
+		<field name="webservice_authentication" type="radio" default="1"
+			label="COM_ROPO_CONFIG_WEBSERVICE_AUTHENTICATION_LABEL" description="COM_ROPO_CONFIG_WEBSERVICE_AUTHENTICATION_DESC">
+			<option value="1">JON</option>
+			<option value="0">JOFF</option>
+		</field>
+		<field name="webservice_username" type="text" default="wsuser"
+			label="COM_ROPO_CONFIG_WEBSERVICE_USERNAME_LABEL" description="COM_ROPO_CONFIG_WEBSERVICE_USERNAME_DESC" />
+		<field name="webservice_password" type="password" default="wspassword"
+			label="COM_ROPO_CONFIG_WEBSERVICE_PASSWORD_LABEL" description="COM_ROPO_CONFIG_WEBSERVICE_PASSWORD_DESC"/>
+	</fieldset>
 	<fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
 		<field name="rules" type="rules" label="JCONFIG_PERMISSIONS_LABEL"
 			class="inputbox" validate="rules" filter="rules" component="com_ropo"

@@ -23,7 +23,7 @@ class RopoControllerServices extends JControllerLegacy
 
 	public function getSystems() {
 		$model = $this->getModel('systems');
-		$items = $model->getSystems('VALID');
+		$items = $model->getSystems();
 
 		return $items;
 	}
@@ -45,7 +45,9 @@ class RopoControllerServices extends JControllerLegacy
 		$server->parse_http_headers();
 		
 		if ($server->SOAPAction) {
-			if(!isset($server->headers['authorization']) || !$this->_authorize($server->headers['authorization'])) {
+			$params = JComponentHelper::getParams('com_ropo');
+			if ($params->get('webservice_authentication', '1') == '0') { 
+			} elseif(!isset($server->headers['authorization']) || !$this->_authorize($server->headers['authorization'], $params)) {
 				$server->fault('SOAP-ENV:Client', 'Access denied');
 				$server->send_response();
 				JLog::add($server->getDebug(), JLog::DEBUG);
@@ -129,7 +131,7 @@ class RopoControllerServices extends JControllerLegacy
 		jexit();
 	}
 
-	private function _authorize($authHeader){
+	private function _authorize($authHeader, $params){
 		$a = explode(' ', $authHeader);
 		$b = explode(':', base64_decode($a[1]));
 		if (count($b) != 2) {
@@ -140,18 +142,8 @@ class RopoControllerServices extends JControllerLegacy
 		$username = $b[0];
 		$pwd = $b[1];
 		
-		JLog::add('Username='.$username.' Pwd='.$pwd, JLog::DEBUG);
-
-		//check for a valid Joomla user
-		jimport('joomla.user.authentication');
-
-		$authenticate = JAuthentication::getInstance();
-		$credentials = array('username' => $username, 'password' => $pwd);
-		$response = $authenticate->authenticate($credentials);
-		if ($response->status === JAuthentication::STATUS_SUCCESS) {
-			$user =& JUser::getInstance(JUserHelper::getUserId($username));
-			return $user->authorise('com_ropo.webservice.execute');
-		}
-		return false;
+		JLog::add('Username='.$params->get('webservice_username').' Pwd='.$params->get('webservice_password'), JLog::DEBUG);
+					
+		return (($username == $params->get('webservice_username')) && ($pwd == $params->get('webservice_password')));
 	}
 }

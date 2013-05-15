@@ -8,6 +8,5 @@
 		<action name="core.edit" title="JACTION_EDIT" description="COM_ROPO_ACTION_SYSTEM_EDIT_DESC" />
 		<action name="core.edit.state" title="JACTION_EDITSTATE" description="COM_ROPO_ACTION_SYSTEM_EDITSTATE_DESC" />
 		<action name="core.edit.own" title="JACTION_EDITOWN" description="COM_ROPO_ACTION_SYSTEM_EDITOWN_DESC" />
-		<action name="com_ropo.webservice.execute" title="COM_ROPO_ACTION_WEBSERVICE_EXECUTE" description="COM_ROPO_ACTION_WEBSERVICE_EXECUTE_DESC" />
 	</section>
 </access>
