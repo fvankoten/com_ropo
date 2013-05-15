@@ -16,12 +16,8 @@ class RopoControllerServices extends JControllerLegacy
 	public function __construct($config = array())
 	{
 		parent::__construct($config);
-		JLog::addLogger(array('text_file' => 'com_ropo.error.php'),
-			//Sets all JLog messages to be set to the file
-			JLog::ALL,
-			//Chooses a category name
-			'com_ropo'
-		);
+		JLog::addLogger(array('text_file' => 'com_ropo.error.php'), JLog::WARNING, 'com_ropo');
+		JLog::addLogger(array('text_file' => 'com_ropo.debug.php'), JLog::ALL, 'com_ropo');
 	}
 
 
@@ -42,25 +38,20 @@ class RopoControllerServices extends JControllerLegacy
 		$endpoint = JURI::base() . 'index.php?'.urlencode('option=com_ropo&task=services.soap&format=xmlrpc');
 
 		$server = new soap_server();
+		$server->setDebugLevel(1);
 		$server->configureWSDL('ropo', 'urn:'.$namespace, $endpoint /*urlencode($endpoint)*/);
 		$server->soap_defencoding = 'UTF-8';
 
-		/*
 		$server->parse_http_headers();
-		
-		$headers = $server->headers;
-		foreach ($headers as $k => $v) {
-			JLog::add($k.' = '.$v, JLog::INFO);
-		}
 		
 		if ($server->SOAPAction) {
 			if(!isset($server->headers['authorization']) || !$this->_authorize($server->headers['authorization'])) {
 				$server->fault('SOAP-ENV:Client', 'Access denied');
 				$server->send_response();
+				JLog::add($server->getDebug(), JLog::DEBUG);
 				jexit();
 			}
 		}
-		*/
 
 		$server->wsdl->addComplexType(
 				'system', // name
@@ -149,7 +140,7 @@ class RopoControllerServices extends JControllerLegacy
 		$username = $b[0];
 		$pwd = $b[1];
 		
-		JLog::add('Username='.$username, JLog::INFO);
+		JLog::add('Username='.$username.' Pwd='.$pwd, JLog::DEBUG);
 
 		//check for a valid Joomla user
 		jimport('joomla.user.authentication');

@@ -22,8 +22,7 @@ class RopoControllerServices extends JControllerLegacy
 	{
 		$wsdlurl = JURI::base().'index.php?'.urlencode('option=com_ropo&task=services.soap&format=xmlrpc&wsdl');
 		// Create the client instance
-		$client = new SoapClient($wsdlurl, array()); 
-		
+		$client = new soapclient($wsdlurl, array()); 
 		try {
 			$result = $client->__call('RopoControllerServices.getSystems', array());
 			echo "<pre>";
