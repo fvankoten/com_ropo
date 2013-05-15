@@ -63,10 +63,10 @@ class RopoModelSystems extends JModelList
 		// From the systems
 		$query->from('#__ropo_systems');
 		
-		if ($state != null) {
+		if ($state != null && $state != '') {
 			$query->where("state='". $state . "'");
 		} else {
-			$query->where("state='VALID'");
+			// $query->where("state='VALID'");
 		}
 		
 		$this->_db->setQuery($query);
