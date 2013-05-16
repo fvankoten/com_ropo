@@ -24,10 +24,7 @@ class RopoModelSystems extends JModelList
 		// Select some fields
 		$query->select('s1.id, s1.regno, s1.version, s1.title, s1.created_time, s1.modified_time, s1.state, s1.identificationdata_controller_name');
 		$query->from('#__ropo_systems s1');
-		
-		$query->join('LEFT OUTER', '#__ropo_systems s2 ON s1.regno = s2.regno AND s1.version < s2.version');
-		
-		$query->where("(s1.created_user_id='" . $user->get('id') . "' OR s1.modified_user_id='" . $user->get('id') . "') AND s2.version IS NULL");
+		$query->where("(s1.created_user_id='" . $user->get('id') . "' OR s1.modified_user_id='" . $user->get('id') . "')");
 		
 		$query->order($db->getEscaped($this->getState('filter_order', 's1.modified_time')) . ' ' . $db->getEscaped($this->getState('filter_order_Dir', 'DESC')));
 		return $query;
@@ -38,17 +35,37 @@ class RopoModelSystems extends JModelList
 		$this->_db->setQuery($query, $limitstart, $limit);
 		$items = $this->_db->loadObjectList();
 		
-		// filter older versions
-		$itemsFilterd = array();
-		foreach ($items as $item) {
-			if (isset($itemsFilterd[$item->regno]) && ($itemsFilterd[$item->regno]->version > $item->version)) {
-				// skip
-			} else {
-				$itemsFilterd[$item->regno] = $item;
+		if ($this->getState('filter.version', 'ALL') == 'NEWEST') {
+			// filter older versions
+			$itemsFilterd = array();
+			foreach ($items as $item) {
+				if (isset($itemsFilterd[$item->regno]) && ($itemsFilterd[$item->regno]->version > $item->version)) {
+					// skip
+				} else {
+					$itemsFilterd[$item->regno] = $item;
+				}
 			}
+				
+			return array_values($itemsFilterd);
 		}
-			
-		return array_values($itemsFilterd);
+		return $items;
+	}
+	
+	/**
+	 * Method to auto-populate the model state.
+	 *
+	 * Note. Calling getState in this method will result in recursion.
+	 *
+	 * @return	void
+	 * @since	1.6
+	 */
+	protected function populateState($ordering = null, $direction = null)
+	{
+		$version = $this->getUserStateFromRequest($this->context.'.filter.version', 'filter_version', 'ALL');
+		$this->setState('filter.version', $version);
+	
+		// List state information.
+		parent::populateState($ordering, $direction);
 	}
 	
 	public function getSystems($state = null) {

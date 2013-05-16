@@ -20,6 +20,14 @@ class RopoViewSystems extends JViewLegacy
 		$items = $this->get('Items');
 		$state = $this->get('State');
 		$pagination = $this->get('Pagination');
+		
+		// Levels filter.
+		$options	= array();
+		$options[]	= JHtml::_('select.option', 'ALL', JText::_('COM_ROPO_SYSTEMS_FILTER_VERSION_ALL'));
+		$options[]	= JHtml::_('select.option', 'NEWEST', JText::_('COM_ROPO_SYSTEMS_FILTER_VERSION_NEWEST'));
+		
+		$this->f_versions = $options;
+		$this->state = $state;
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))

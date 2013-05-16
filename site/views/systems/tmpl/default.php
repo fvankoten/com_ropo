@@ -4,6 +4,7 @@ defined('_JEXEC') or die('Restricted Access');
 
 // load tooltip behavior
 JHtml::_('behavior.tooltip');
+
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_ropo'); ?>" method="post" id="adminForm" name="adminForm">
 	<div>
@@ -12,6 +13,12 @@ JHtml::_('behavior.tooltip');
 	<div class="clr"></div>
 	
 	<h1><?php echo JText::_("COM_ROPO_SYSTEMS")?></h1>
+	
+	<div style="margin: 1em 0;">
+		<select name="filter_version" onchange="this.form.submit()">
+			<?php echo JHtml::_('select.options', $this->f_versions, 'value', 'text', $this->state->get('filter.version'));?>
+		</select>
+	</div>
 	
 	<table style='table-layout: auto; width: 100%;'>
 		<thead><?php echo $this->loadTemplate('head');?></thead>
