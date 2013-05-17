@@ -135,6 +135,7 @@ class RopoModelSystem extends JModelAdmin
 	}
 	
 	public function setSystemState($id, $state) {
+		if ($id <= 0) return false;
 		switch ($state) {
 			case 'INVALID':
 			case 'VALID':
@@ -151,7 +152,31 @@ class RopoModelSystem extends JModelAdmin
 				return false;
 		}
 		
-		$data = array('id' => $id, 'state' => $state);		
-		return $this->save($data);
+		$data = array('id' => $id, 'state' => $state);
+		$table = $this->getTable();
+		// Load the row
+		$table->load($id);
+		// Bind the data
+		if (!$table->bind($data))
+		{
+			$this->setError($table->getError());
+			return false;
+		}
+		// Check the data.
+		if (!$table->check())
+		{
+			$this->setError($table->getError());
+			return false;
+		}
+		// Store the data.
+		if (!$table->store())
+		{
+			$this->setError($table->getError());
+			return false;
+		}
+		// Clean the cache.
+		$this->cleanCache();
+		
+		return true;
 	}
 }
