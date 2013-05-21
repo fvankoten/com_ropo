@@ -4,11 +4,11 @@
 	<name>ROPO</name>
 	<!-- The following elements are optional and free of formatting constraints -->
 	<creationDate>February 2013</creationDate>
-	<author>Florian van Koten</author>
+	<author>systematics NETWORK SERVICES GmbH</author>
 	<authorEmail>fvankoten@sns-it.de</authorEmail>
 	<authorUrl>http://www.sns-it.de</authorUrl>
 	<copyright>Copyright Info</copyright>
-	<license>License Info</license>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<!-- The version string is recorded in the components table -->
 	<version>0.9.1</version>
 	<!-- The description is optional and defaults to the name -->
