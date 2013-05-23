@@ -76,6 +76,7 @@
 	
 	<media folder="media" destination="com_ropo">
 		<folder>css</folder>
+		<folder>images</folder>
 	</media>
 
 </extension>

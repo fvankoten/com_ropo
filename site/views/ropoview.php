@@ -46,6 +46,8 @@ class RopoViewBase extends JViewLegacy
 		$document = JFactory::getDocument();
 		$document->addStyleSheet('administrator/templates/system/css/system.css');
 		$document->addStyleSheet('media/com_ropo/css/ropo.css');
+		$document->addStyleSheet('media/com_ropo/css/toolbar.css');
+		
 		//now we add the necessary stylesheets from the administrator template
 		//in this case i make reference to the bluestork default administrator template in joomla 1.6
 		$document->addCustomTag(

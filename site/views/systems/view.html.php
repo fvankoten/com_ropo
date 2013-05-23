@@ -51,6 +51,8 @@ class RopoViewSystems extends JViewLegacy
 		// add required stylesheets from admin template
 		$document    = & JFactory::getDocument();
 		$document->addStyleSheet('administrator/templates/system/css/system.css');
+		$document->addStyleSheet('media/com_ropo/css/toolbar.css');
+		
 		//now we add the necessary stylesheets from the administrator template
 		//in this case i make reference to the bluestork default administrator template in joomla 1.6
 		$document->addCustomTag(
@@ -63,6 +65,7 @@ class RopoViewSystems extends JViewLegacy
             '<![endif]-->'."\n".
             '<link rel="stylesheet" href="administrator/templates/bluestork/css/rounded.css" type="text/css" />'."\n"
         );
+        
         // load the JToolBar library and create a toolbar
         jimport('joomla.html.toolbar');
         $bar = new JToolBar('toolbar');
