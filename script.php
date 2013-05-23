@@ -17,22 +17,22 @@ class com_ropoInstallerScript
 	public function __construct(JAdapterInstance $adapter)
 	{
 		// Get the path to the package to install
-		$p_dir_user = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'plugins'.DS.'user'.DS;
+		$p_dir_user = JPATH_ADMINISTRATOR.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_ropo'.DIRECTORY_SEPARATOR.'extensions'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.'user'.DIRECTORY_SEPARATOR;
 		$p_dir_user = JPath::clean( $p_dir_user );
 		
-		$p_dir_auth = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'plugins'.DS.'authentication'.DS;
+		$p_dir_auth = JPATH_ADMINISTRATOR.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_ropo'.DIRECTORY_SEPARATOR.'extensions'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.'authentication'.DIRECTORY_SEPARATOR;
 		$p_dir_auth = JPath::clean( $p_dir_auth );
 		
-		$p_dir_dompdf = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'libraries'.DS.'dompdf'.DS;
+		$p_dir_dompdf = JPATH_ADMINISTRATOR.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_ropo'.DIRECTORY_SEPARATOR.'extensions'.DIRECTORY_SEPARATOR.'libraries'.DIRECTORY_SEPARATOR.'dompdf'.DIRECTORY_SEPARATOR;
 		$p_dir_dompdf = JPath::clean( $p_dir_dompdf );
 		
-		$p_dir_documentpdf = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'files'.DS.'documentpdf'.DS;
+		$p_dir_documentpdf = JPATH_ADMINISTRATOR.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_ropo'.DIRECTORY_SEPARATOR.'extensions'.DIRECTORY_SEPARATOR.'files'.DIRECTORY_SEPARATOR.'documentpdf'.DIRECTORY_SEPARATOR;
 		$p_dir_documentpdf = JPath::clean( $p_dir_documentpdf );
 		
-		$p_dir_search = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'plugins'.DS.'search'.DS;
+		$p_dir_search = JPATH_ADMINISTRATOR.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_ropo'.DIRECTORY_SEPARATOR.'extensions'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.'search'.DIRECTORY_SEPARATOR;
 		$p_dir_search = JPath::clean( $p_dir_search );
 		
-		$p_dir_nusoap = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ropo'.DS.'extensions'.DS.'libraries'.DS.'nusoap'.DS;
+		$p_dir_nusoap = JPATH_ADMINISTRATOR.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_ropo'.DIRECTORY_SEPARATOR.'extensions'.DIRECTORY_SEPARATOR.'libraries'.DIRECTORY_SEPARATOR.'nusoap'.DIRECTORY_SEPARATOR;
 		$p_dir_nusoap = JPath::clean( $p_dir_nusoap );
 
 		$this->_packages = array(
@@ -258,7 +258,7 @@ class com_ropoInstallerScript
 			// Cleanup the install files
 			if (!is_file($package['packagefile'])) {
 				$config =& JFactory::getConfig();
-				$package['packagefile'] = $config->getValue('config.tmp_path').DS.$package['packagefile'];
+				$package['packagefile'] = $config->get('config.tmp_path').DIRECTORY_SEPARATOR.$package['packagefile'];
 			}
 
 			JInstallerHelper::cleanupInstall($package['packagefile'], $package['extractdir']);

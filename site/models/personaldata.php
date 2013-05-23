@@ -3,7 +3,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 // import Joomla modelform library
-require_once( dirname(__FILE__).DS.'system.php' );
+require_once( dirname(__FILE__).DIRECTORY_SEPARATOR.'system.php' );
 
 /**
  * Personaldata Model

@@ -26,7 +26,7 @@ class RopoModelSystems extends JModelList
 		$query->from('#__ropo_systems s1');
 		$query->where("(s1.created_user_id='" . $user->get('id') . "' OR s1.modified_user_id='" . $user->get('id') . "')");
 		
-		$query->order($db->getEscaped($this->getState('filter_order', 's1.modified_time')) . ' ' . $db->getEscaped($this->getState('filter_order_Dir', 'DESC')));
+		//$query->order($db->getEscaped($this->getState('filter_order', 's1.modified_time')) . ' ' . $db->getEscaped($this->getState('filter_order_Dir', 'DESC')));
 		return $query;
 	}
 	

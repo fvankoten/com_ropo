@@ -12,6 +12,7 @@ class RopoViewSystems extends JViewLegacy
 {
 
 	protected $canDo;
+	protected $state;
 	
 	// Overwriting JView display method
 	function display($tpl = null)

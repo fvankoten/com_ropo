@@ -24,7 +24,7 @@ class RopoModelPublicsystems extends JModelList
 		$query->from('#__ropo_systems s1');
 		$query->where(array("s1.state='APPROVED'"));
 		
-		$query->order($db->getEscaped($this->getState('filter_order', 's1.modified_time')) . ' ' . $db->getEscaped($this->getState('filter_order_Dir', 'DESC')));
+		//$query->order($db->getEscaped($this->getState('filter_order', 's1.modified_time')) . ' ' . $db->getEscaped($this->getState('filter_order_Dir', 'DESC')));
 		return $query;
 	}
 	

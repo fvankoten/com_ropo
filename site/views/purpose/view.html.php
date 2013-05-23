@@ -3,7 +3,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 // import Joomla view library
-require_once( dirname(__FILE__).DS.'..'.DS.'ropoview.php' );
+require_once( dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'ropoview.php' );
 
 /**
  * Purpose View
