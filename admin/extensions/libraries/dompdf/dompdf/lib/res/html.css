@@ -11,7 +11,7 @@
  * @link    http://www.dompdf.com/
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @author  Blake Ross <BlakeR1234@aol.com>
- * @author  Fabien Ménager <fabien.menager@gmail.com>
+ * @author  Fabien Mï¿½nager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  * @version $Id: html.css 456 2012-01-21 11:20:37Z fabien.menager $
  */
@@ -423,4 +423,32 @@ dompdf_generated {
 area, base, basefont, head, meta, script, style, title,
 noembed, noscript, param {
   display: none;
+}
+
+input[type=checkbox], input[type=radio] {
+	background-color: #fff;
+	padding: 2px;
+	color: #000;
+	width: 1em;
+	height: 1em;
+	border: none;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+input[type=checkbox] {
+	background-image: url(basic_checkbox.png);
+}
+
+input:checked[type=checkbox] {
+	background-image: url(basic_checkbox_checked.png);
+}
+
+input[type=radio] {
+	background-image: url(basic_checkbox.png);
+}
+
+input:checked[type=radio] {
+	 background-image: url(basic_checkbox_checked.png);
 }

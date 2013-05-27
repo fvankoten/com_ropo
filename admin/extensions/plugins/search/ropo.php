@@ -141,29 +141,37 @@ class plgSearchRopo extends JPlugin
 				break;
 		}
 
-		$rows = array();
+		$rowsFilterd = array();
+		$regnos = array();
 		$query	= $db->getQuery(true);
 		$plgName = JText::_('PLG_SEARCH_ROPO_PROCESSING_SYSTEMS');
 
 		// search articles
 		if (!empty($state))
 		{
-			$query->select('s.title AS title, s.created_time AS created, s.purpose AS text, s.id AS id');
+			$query->select('s.title AS title, s.created_time AS created, s.purpose AS text, s.id AS id, s.regno AS regno, s.version AS version');
 			$query->from('#__ropo_systems AS s');
-			$query->join('LEFT OUTER', '#__ropo_systems s2 ON s.regno = s2.regno AND s.version < s2.version');
-			$query->where($where . ' AND (s2.version IS NULL)');
+			$query->where($where);
 			$query->order($order);
 			
 			$db->setQuery($query, 0, $limit);
 			$rows = $db->loadObjectList('id');
 			
+			// filter older versions
 			foreach($rows as $key => $row) {
 				$rows[$key]->href = 'index.php?option=com_ropo&view=publicsystem&id='.$row->id;
 				$rows[$key]->section = $plgName;
 				$rows[$key]->browsernav = '2';
+				
+				if (isset($regnos[$row->regno]) && ($regnos[$row->regno] > $row->version)) {
+					// skip
+				} else {
+					$rowsFilterd[$key] = $row;
+					$regnos[$row->regno] = $row->version;
+				}
 			}
 		}
 
-		return $rows;
+		return $rowsFilterd;
 	}
 }
