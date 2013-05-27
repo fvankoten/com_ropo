@@ -11,6 +11,7 @@ table.progressbar {
 table.progressbar td.progress {
 	padding: 2px;
 	border: 1px solid #c0c0c0;
+	background-image: none;
 }
 
 table.progressbar td.progress.done {
@@ -69,6 +70,7 @@ table.systemdata tr, table.systemdata th {
 table.systemdata tr, table.systemdata th, table.systemdata td {
 	border: none;
 	padding: 0 5px;
+	text-align: left;
 }
 
 table.systemdata td input.width100, table.systemdata td textarea.width100 {

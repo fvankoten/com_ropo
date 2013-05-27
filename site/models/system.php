@@ -115,7 +115,7 @@ class RopoModelSystem extends JModelAdmin
 		switch($table->state) {
 			case 'INVALID':
 			case 'VALID':
-				// nothing to do
+				if ($table->version == 0) $table->version = 1;
 				break;
 			case 'eRECEIVED':
 			case 'pRECEIVED':
