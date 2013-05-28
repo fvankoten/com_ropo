@@ -92,6 +92,7 @@ CREATE TABLE `#__ropo_systems` (
 	`transfer_legal_basis` VARCHAR(255),
 	`transfer_frequency` ENUM ('ONCE','CONTINUOUSLY','PERIODICALLY'),
 	`transfer_period` INT(3) DEFAULT NULL,
+	`transfer_interval` ENUM( 'DAYS', 'MONTHS', 'YEARS' ) NOT NULL,
 	`transfer_authorization` VARCHAR(255),
 	`linkedsystem_enabled` TINYINT(1) DEFAULT 0,
 	`linkedsystem_description` TEXT,

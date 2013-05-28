@@ -22,6 +22,12 @@
 		</field>
 		<field name="transfer_period" type="integer" first="1" last="100"  step="1"
 			label="COM_ROPO_TRANSFER_PERIOD_LABEL" description="COM_ROPO_TRANSFER_PERIOD_DESC" />
+		<field name="transfer_interval" type="list"
+			label="COM_ROPO_TRANSFER_INTERVAL_LABEL" description="COM_ROPO_TRANSFER_INTERVAL_DESC" >
+			<option value="DAYS">COM_ROPO_TRANSFER_INTERVAL_DAYS</option>
+			<option value="MONTHS">COM_ROPO_TRANSFER_INTERVAL_MONTHS</option>
+			<option value="YEARS">COM_ROPO_TRANSFER_INTERVAL_YEARS</option>
+		</field>
 		<field name="transfer_authorization" type="textarea" rows="2" cols="80" class="width100"
 			label="COM_ROPO_TRANSFER_AUTHORIZATION_LABEL" description="COM_ROPO_TRANSFER_AUTHORIZATION_DESC" />
 	</fieldset>

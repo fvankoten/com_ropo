@@ -74,7 +74,9 @@ defined('_JEXEC') or die('Restricted Access');
 		/>
 		<label>
 			<?php echo JText::_('COM_ROPO_TRANSFER_FREQUENCY_PERIODICALLY') ?>
-			<?php echo JText::sprintf('COM_ROPO_TRANSFER_EACH_LABEL', $this->item->transfer_frequency ? $this->item->transfer_period : '_') ?>
+			<?php echo JText::sprintf('COM_ROPO_TRANSFER_EACH_LABEL', 
+					$this->item->transfer_frequency ? $this->item->transfer_period : '_',
+					JText::_('COM_ROPO_TRANSFER_INTERVAL_'.$this->item->transfer_interval)) ?>
 		</label>
 		
 	</td>
