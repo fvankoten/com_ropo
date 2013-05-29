@@ -2,9 +2,16 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 ?>
-<h1><?php echo JText::_("COM_ROPO_SYSTEM")?></h1>
 
-<div id="accordion">
+<div>	
+<?php echo JHtml::_(
+							'image', 
+							JUri::base().'media/com_ropo/images/llogo.jpg', 
+							'logo', 
+							array('width' => '100%')); ?>
+</div>
+
+<div id="accordion" style="margin-top: 1em;">
 	<table style="table-layout: fixed; width: 100%;" id="publicsystem" class="pdf">
 		<tbody>
 			<?php echo $this->loadTemplate('system');?>

@@ -22,9 +22,9 @@ $this->document->addScriptDeclaration('
 <div id="accordion">
 	<table style="table-layout: fixed; width: 100%;" id="publicsystem">
 		<colgroup>
-		    <col class="col1">
-		    <col class="col2">
-	  </colgroup>
+			<col class="col1">
+			<col class="col2">
+		</colgroup>
 		<tbody>
 			<?php echo $this->loadTemplate('system');?>
 			<?php echo $this->loadTemplate('identificationdata');?>
