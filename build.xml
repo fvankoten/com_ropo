@@ -11,7 +11,7 @@
 	
 	<fileset dir="${project.basedir}/admin" id="adminfiles">
 	    <include name="**/*" />
-		<exclude name="plugins" />
+		<exclude name="extensions" />
 	</fileset>
 	
 	<fileset dir="${project.basedir}/media" id="mediafiles">

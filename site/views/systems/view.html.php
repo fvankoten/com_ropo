@@ -81,6 +81,7 @@ class RopoViewSystems extends JViewLegacy
         if ($this->canDo->get('core.edit.own')) {
         	$bar->appendButton('Frontend', 'edit', 'COM_ROPO_SYSTEMS_TOOLBAR_EDIT', 'system.edit', true);
         }
+        $bar->appendButton('Frontend', 'pdf', 'COM_ROPO_SYSTEM_TOOLBAR_PDF', 'system.pdf', true);
 
         //generate the html and return
         return $bar->render();

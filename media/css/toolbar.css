@@ -162,3 +162,7 @@ div.btn-toolbar span {
 .icon-extension {
     background-image: url("../images/toolbar/icon-32-extension.png");
 }
+
+.icon-32-pdf, .icon-pdf {
+    background-image: url("../images/toolbar/icon-32-pdf.png");
+}

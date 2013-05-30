@@ -164,4 +164,38 @@ class RopoControllerSystem extends JControllerForm
 
 		return $success;
 	}
+	
+	public function pdf($key = null, $urlVar = null)
+	{
+		$recordId = 0;
+		
+		$cid = JRequest::getVar('cid', array(), 'default', 'array');
+		if (count($cid)) {
+			$recordId = (int)$cid[0];
+		} else {
+			$model = $this->getModel($view);
+			$table = $model->getTable();
+			if (empty($key))
+			{
+				$key = $table->getKeyName();
+			}
+			
+			if (empty($urlVar))
+			{
+				$urlVar = $key;
+			}
+			
+			$recordId = JRequest::getVar($urlVar, 0, 'default', 'int');
+		}
+		
+		if ($recordId > 0) {
+			$this->setRedirect(
+					JRoute::_('index.php?option=' . $this->option . '&view=publicsystem'
+							. '&id=' . $recordId . '&format=pdf&tmpl=component', false
+					)
+			);
+		}
+		
+		return false;
+	}
 }

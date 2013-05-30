@@ -18,5 +18,5 @@ defined('_JEXEC') or die('Restricted Access');
 </tr>
 <tr>
 	<td class="col1"><?php echo JText::_('COM_ROPO_APPLICANT_SIGNATURE_LABEL') ?></td>
-	<td class="col2"><?php echo $this->item->security_confidentiality ?></td>
+	<td class="col2" style="height: 8em;"><?php echo $this->item->security_confidentiality ?></td>
 </tr>
