@@ -233,7 +233,7 @@ class com_ropoInstallerScript
 	 */
 	private function installPlugins() {
 		$packages = $this->_packages;
-		$mainframe =& JFactory::getApplication();
+		$mainframe = JFactory::getApplication();
 
 		if (!is_array($packages)) {
 			return false;
@@ -257,7 +257,7 @@ class com_ropoInstallerScript
 
 			// Cleanup the install files
 			if (!is_file($package['packagefile'])) {
-				$config =& JFactory::getConfig();
+				$config = JFactory::getConfig();
 				$package['packagefile'] = $config->get('config.tmp_path').DIRECTORY_SEPARATOR.$package['packagefile'];
 			}
 

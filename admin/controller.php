@@ -15,13 +15,13 @@ class RopoController extends JControllerLegacy
 	 *
 	 * @return void
 	 */
-	function display($cachable = false)
+	function display($cachable = false, $urlparams = array())
 	{
 		// set default view if not set
 		$input = JFactory::getApplication()->input;
 		$input->set('view', $input->getCmd('view', 'Systems'));
 
 		// call parent behavior
-		parent::display($cachable);
+		parent::display($cachable, $urlparams);
 	}
 }
