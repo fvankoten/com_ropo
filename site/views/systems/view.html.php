@@ -49,7 +49,7 @@ class RopoViewSystems extends JViewLegacy
 
 	function getToolbar() {
 		// add required stylesheets from admin template
-		$document    = & JFactory::getDocument();
+		$document    = JFactory::getDocument();
 		$document->addStyleSheet('administrator/templates/system/css/system.css');
 		$document->addStyleSheet('media/com_ropo/css/toolbar.css');
 		

@@ -110,7 +110,7 @@ class RopoModelSystem extends JModelAdmin
 		return parent::validate($form, $data, $group);
 	}
 	
-	protected function prepareTable(&$table)
+	protected function prepareTable($table)
 	{
 		switch($table->state) {
 			case 'INVALID':

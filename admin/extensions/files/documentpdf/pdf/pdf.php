@@ -15,6 +15,7 @@
 defined('JPATH_BASE') or die();
 
 require_once(JPATH_LIBRARIES .'/joomla/document/html/html.php');
+jimport('joomla.filesystem.file');
 
 /**
  * DocumentPDF class, provides an easy interface to parse and display a pdf document

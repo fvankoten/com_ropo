@@ -67,7 +67,7 @@ defined('_JEXEC') or die('Restricted Access');
 <tr class="level2"><th colspan="2"><?php echo JText::_('COM_ROPO_IDENTIFICATIONDATA_FIELDSET_PROCESSOR') ?></th></tr>
 <tr>
 	<td class="col1"><?php echo JText::_('COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_NAME_LABEL') ?></td>
-	<td class="col2"><?php echo $this->item->identificationdata_processor_name ?></td>
+	<td class="col2"><?php echo $this->item->identificationdata_pocessor_name ?></td>
 </tr>
 <tr>
 	<td class="col1"><?php echo JText::_('COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_ADDRESS1_LABEL') ?></td>
