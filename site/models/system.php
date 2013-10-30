@@ -134,6 +134,24 @@ class RopoModelSystem extends JModelAdmin
 		}
 	}
 	
+	/**
+	 * Method to delete one or more records.
+	 *
+	 * @param   array  &$pks  An array of record primary keys.
+	 *
+	 * @return  boolean  True if successful, false if an error occurs.
+	 *
+	 * @since   12.2
+	 */
+	public function delete(&$pks) {
+		$pks = (array) $pks;
+		foreach ($pks as $i => $pk) {
+			if (false == $this->setSystemState($pk, 'DELETED')) return false;
+		}
+		return true;
+	}
+	
+	
 	public function setSystemState($id, $state) {
 		if ($id <= 0) return false;
 		switch ($state) {
