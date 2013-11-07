@@ -64,7 +64,7 @@ class plgUserRopoprofile extends JPlugin
 		// Load user_profile plugin language
 		$lang = JFactory::getLanguage();
 		$lang->load('plg_user_ropoprofile', JPATH_ADMINISTRATOR);
-
+		
 		$fields = array(
 				'address1',
 				'postalcode',
@@ -83,33 +83,24 @@ class plgUserRopoprofile extends JPlugin
 		if (!in_array($form->getName(), array('com_users.profile', 'com_users.registration','com_users.user','com_admin.profile'))) {
 			return true;
 		}
+		
+		// Add the profile fields to the form.
+		JForm::addFormPath(dirname(__FILE__).'/profiles');
+		$form->loadFile('profile', false);
 
-		foreach ($fields as $field)
-		{
-			if ($form->getName()=='com_users.profile')
-			{
-				// Add the profile fields to the form.
-				JForm::addFormPath(dirname(__FILE__).'/profiles');
-				$form->loadFile('profile', false);
-
+		foreach ($fields as $field) {
+			if ($form->getName()=='com_users.profile') {
 				// Toggle whether the fields are required.
 				if ($this->params->get('profile-require-' . $field, 1) > 0) {
-					$form->setFieldAttribute($field, 'required', $this->params->get('profile-require-' . $field) == 2, 'ropoprofile');
+					$form->setFieldAttribute($field, 'required', ($this->params->get('profile-require-' . $field) == 2) ? 'required' : '', 'ropoprofile');
 				} else {
 					$form->removeField($field, 'ropoprofile');
 				}
-			}
-
-			//In this example, we treat the frontend registration and the back end user create or edit as the same.
-			elseif ($form->getName()=='com_users.registration' || $form->getName()=='com_users.user' )
-			{
-				// Add the registration fields to the form.
-				JForm::addFormPath(dirname(__FILE__).'/profiles');
-				$form->loadFile('profile', false);
-
+			
+			} else if ($form->getName()=='com_users.registration' || $form->getName()=='com_users.user' ) {
 				// Toggle whether the fields are required.
 				if ($this->params->get('register-require-' . $field, 1) > 0) {
-					$form->setFieldAttribute($field, 'required', $this->params->get('register-require-' .  $field) == 2, 'ropoprofile');
+					$form->setFieldAttribute($field, 'required', ($this->params->get('register-require-' .  $field) == 2) ? 'required' : '', 'ropoprofile');
 				} else {
 					$form->removeField($field, 'ropoprofile');
 				}

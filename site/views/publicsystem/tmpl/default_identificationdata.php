@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted Access');
 			<?php endif; ?>
 			type="radio" readonly="readonly">
 		<label><?php echo JText::_('COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_TYPE_NATURAL') ?></label>
-		&nbsp;&nbsp;&nbsp;
+		&#160;&#160;&#160;
 		<input 
 			<?php if ($this->item->identificationdata_type_of_controller == 'LEGAL') : ?>
 			checked="checked"
@@ -35,11 +35,11 @@ defined('_JEXEC') or die('Restricted Access');
 </tr>
 <tr>
 	<td class="col1">
-		<?php echo JText::_('COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_POSTALCODE_LABEL') ?>&nbsp;
+		<?php echo JText::_('COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_POSTALCODE_LABEL') ?>&#160;
 		<?php echo JText::_('COM_ROPO_IDENTIFICATIONDATA_CONTROLLER_CITY_LABEL') ?>
 	</td>
 	<td class="col2">
-		<?php echo $this->item->identificationdata_controller_postalcode ?>&nbsp;
+		<?php echo $this->item->identificationdata_controller_postalcode ?>&#160;
 		<?php echo $this->item->identificationdata_controller_city ?>
 	</td>
 </tr>
@@ -75,11 +75,11 @@ defined('_JEXEC') or die('Restricted Access');
 </tr>
 <tr>
 	<td class="col1">
-		<?php echo JText::_('COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_POSTALCODE_LABEL') ?>&nbsp;
+		<?php echo JText::_('COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_POSTALCODE_LABEL') ?>&#160;
 		<?php echo JText::_('COM_ROPO_IDENTIFICATIONDATA_PROCESSOR_CITY_LABEL') ?>
 	</td>
 	<td class="col2">
-		<?php echo $this->item->identificationdata_pocessor_postalcode ?>&nbsp;
+		<?php echo $this->item->identificationdata_pocessor_postalcode ?>&#160;
 		<?php echo $this->item->identificationdata_pocessor_city ?>
 	</td>
 </tr>
@@ -111,11 +111,11 @@ defined('_JEXEC') or die('Restricted Access');
 </tr>
 <tr>
 	<td class="col1">
-		<?php echo JText::_('COM_ROPO_IDENTIFICATIONDATA_PLACE_POSTALCODE_LABEL') ?>&nbsp;
+		<?php echo JText::_('COM_ROPO_IDENTIFICATIONDATA_PLACE_POSTALCODE_LABEL') ?>&#160;
 		<?php echo JText::_('COM_ROPO_IDENTIFICATIONDATA_PLACE_CITY_LABEL') ?>
 	</td>
 	<td class="col2">
-		<?php echo $this->item->identificationdata_place_postalcode ?>&nbsp;
+		<?php echo $this->item->identificationdata_place_postalcode ?>&#160;
 		<?php echo $this->item->identificationdata_place_city ?>
 	</td>
 </tr>

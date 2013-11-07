@@ -42,7 +42,7 @@ class RopoViewApplicant extends RopoViewBase
         	$bar->appendButton('Frontend', 'back', 'COM_ROPO_SYSTEM_TOOLBAR_PREV', 'system.prev', false);
             $bar->appendButton('Frontend', 'publish', 'COM_ROPO_SYSTEM_TOOLBAR_COMMIT', 'system.commit', false);
         }
-        $bar->appendButton('Frontend', 'pdf', 'COM_ROPO_SYSTEM_TOOLBAR_PDF', 'system.pdf', false);
+        //$bar->appendButton('Frontend', 'pdf', 'COM_ROPO_SYSTEM_TOOLBAR_PDF', 'system.pdf', false);
         
         //generate the html and return
         return $bar->render();

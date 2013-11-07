@@ -4,11 +4,7 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 
 <div>	
-<?php echo JHtml::_(
-							'image', 
-							JUri::base().'media/com_ropo/images/llogo.jpg', 
-							'logo', 
-							array('width' => '100%')); ?>
+<?php echo JHtml::_('image', JUri::base().'media/com_ropo/images/llogo.jpg', 'logo',array('width' => '100%')); ?>
 </div>
 
 <div id="accordion" style="margin-top: 1em;">

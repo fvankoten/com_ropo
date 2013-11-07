@@ -21,6 +21,7 @@ class RopoModelPersonaldata extends RopoModelSystem
 	{
 		$result = parent::validate($form, $data, $group);
 	
+		/*
 		$valid = true;
 		$cb1 = $data['personaldata_health'];
 		$cb2 = $data['personaldata_political_opinions'];
@@ -55,6 +56,7 @@ class RopoModelPersonaldata extends RopoModelSystem
 			$this->setError(JText::_('COM_ROPO_PERSONALDATA_OTHER_ERROR'));
 			$result = false;
 		}
+		*/
 	
 		return $result;
 	}

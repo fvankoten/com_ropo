@@ -68,5 +68,5 @@ defined('_JEXEC') or die('Restricted Access');
 
 <tr class="level2"><th colspan="2"><?php echo JText::_('COM_ROPO_DATA_DETAILS_ON_DATA_RETENTION_FIELDSET') ?></th></tr>
 <tr>
-	<td colspan="2" class="col1"><?php echo $this->item->data_details ?>&nbsp;</td>
+	<td colspan="2" class="col1"><?php echo $this->item->data_details ?>&#160;</td>
 </tr>
